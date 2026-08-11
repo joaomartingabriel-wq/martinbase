@@ -1,0 +1,145 @@
+backend:
+  name: git-gateway
+  repo: joaomartingabriel-wq/martinbase          # <<< AJUSTE se o repositório tiver outro nome
+  branch: main
+  identity_url: https://auth.decapbridge.com/sites/COLE-AQUI-O-ID-DO-SITE   # <<< COLE o ID gerado no DecapBridge
+  gateway_url: https://gateway.decapbridge.com
+
+site_url: https://martinbase.com
+logo_url: https://decapbridge.com/decapcms-with-bridge.svg
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+locale: pt
+publish_mode: editorial_workflow
+
+collections:
+
+  # ══════════════════════════════════════════════════════════
+  #  CONTEÚDO DO SITE — arquivo único data/site.json
+  # ══════════════════════════════════════════════════════════
+  - name: "site"
+    label: "Conteúdo do Site"
+    files:
+
+      # Todo o conteúdo vive em um único arquivo (data/site.json),
+      # por isso há uma única entrada aqui. As seções aparecem como
+      # blocos recolhíveis dentro do formulário.
+      - name: "conteudo"
+        label: "Página inicial — todas as seções"
+        file: "data/site.json"
+        description: "Abra o bloco da seção que quiser editar. Cada alteração vira uma revisão antes de ir ao ar."
+        fields:
+          - label: "Dados da Empresa e Contato"
+            name: "empresa"
+            widget: "object"
+            fields:
+              - { label: "Nome da agência", name: "nome", widget: "string" }
+              - { label: "Slogan", name: "slogan", widget: "string" }
+              - { label: "WhatsApp (só números, com país e DDD — ex: 5551997749263)", name: "whatsapp", widget: "string", pattern: ['^[0-9]{12,13}$', 'Digite apenas números, ex: 5551997749263'] }
+              - { label: "Mensagem que abre no WhatsApp", name: "whatsapp_msg", widget: "string" }
+              - { label: "Telefone como aparece no site", name: "telefone_exibicao", widget: "string" }
+              - { label: "E-mail", name: "email", widget: "string" }
+              - { label: "Site (sem https)", name: "site", widget: "string" }
+              - { label: "Cidade", name: "cidade", widget: "string" }
+              - { label: "Estado", name: "estado", widget: "string" }
+              - { label: "Abrangência de atendimento", name: "abrangencia", widget: "string" }
+
+          - label: "SEO — como o site aparece no Google e no WhatsApp"
+            name: "seo"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Título da página", name: "titulo", widget: "string" }
+              - { label: "Descrição (até ~155 caracteres)", name: "descricao", widget: "text" }
+
+          - label: "Rodapé"
+            name: "rodape"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Texto de apresentação", name: "tagline", widget: "text" }
+              - { label: "Linha de copyright", name: "copyright", widget: "string" }
+
+          # campos abaixo existem no arquivo mas são editados nas outras abas
+          - { label: "Topo", name: "hero", widget: "object", collapsed: true, fields: [
+              { label: "Prefixo do selo", name: "kicker_prefixo", widget: "string" },
+              { label: "Palavras que alternam", name: "kicker_palavras", widget: "list", field: { label: "Palavra", name: "palavra", widget: "string" } },
+              { label: "Título — início", name: "titulo_inicio", widget: "string" },
+              { label: "Título — parte destacada em verde", name: "titulo_destaque", widget: "string" },
+              { label: "Título — final", name: "titulo_fim", widget: "string" },
+              { label: "Parágrafo de apresentação", name: "subtitulo", widget: "text" },
+              { label: "Botão principal", name: "cta_primario", widget: "string" },
+              { label: "Botão secundário", name: "cta_secundario", widget: "string" },
+              { label: "Painel — referência", name: "painel_ref", widget: "string" },
+              { label: "Painel — status", name: "painel_status", widget: "string" },
+              { label: "Painel — linhas", name: "painel_linhas", widget: "list", fields: [
+                  { label: "Rótulo", name: "chave", widget: "string" },
+                  { label: "Valor", name: "valor", widget: "string" } ] } ] }
+          - { label: "Números", name: "metricas", widget: "list", collapsed: true, fields: [
+              { label: "Número", name: "numero", widget: "string" },
+              { label: "Sufixo", name: "sufixo", widget: "string", required: false },
+              { label: "Descrição", name: "label", widget: "text" } ] }
+          - { label: "Faixa verde", name: "marquee", widget: "list", collapsed: true, field: { label: "Termo", name: "termo", widget: "string" } }
+          - { label: "Diferencial", name: "diferencial", widget: "object", collapsed: true, fields: [
+              { label: "Rótulo", name: "rotulo", widget: "string" },
+              { label: "Título", name: "titulo", widget: "string" },
+              { label: "Nota", name: "nota", widget: "text" },
+              { label: "Pilares", name: "pilares", widget: "list", fields: [
+                  { label: "Número", name: "indice", widget: "string" },
+                  { label: "Título", name: "titulo", widget: "string" },
+                  { label: "Texto", name: "texto", widget: "text" } ] } ] }
+          - { label: "Portfólio", name: "portfolio", widget: "object", collapsed: true, fields: [
+              { label: "Rótulo", name: "rotulo", widget: "string" },
+              { label: "Título", name: "titulo", widget: "string" },
+              { label: "Nota", name: "nota", widget: "text" },
+              { label: "Projetos", name: "cases", widget: "list", fields: [
+                  { label: "Etiqueta", name: "tag", widget: "string" },
+                  { label: "Nome do projeto", name: "titulo", widget: "string" },
+                  { label: "Descrição", name: "texto", widget: "text" },
+                  { label: "Link", name: "url", widget: "string" },
+                  { label: "Domínio", name: "dominio", widget: "string" },
+                  { label: "Imagem", name: "imagem", widget: "image" },
+                  { label: "Cor da barra", name: "cor_barra", widget: "string", required: false },
+                  { label: "Cor do endereço", name: "cor_url", widget: "string", required: false },
+                  { label: "Cor de fundo", name: "cor_fundo", widget: "string", required: false } ] } ] }
+          - { label: "Serviços", name: "servicos", widget: "object", collapsed: true, fields: [
+              { label: "Rótulo", name: "rotulo", widget: "string" },
+              { label: "Título", name: "titulo", widget: "string" },
+              { label: "Nota", name: "nota", widget: "text" },
+              { label: "Serviços", name: "itens", widget: "list", fields: [
+                  { label: "Nome", name: "titulo", widget: "string" },
+                  { label: "Destacar", name: "destaque", widget: "boolean", default: false },
+                  { label: "Selo", name: "selo", widget: "string", required: false },
+                  { label: "Descrição", name: "lead", widget: "text" },
+                  { label: "Itens", name: "bullets", widget: "list", field: { label: "Item", name: "item", widget: "string" } },
+                  { label: "Rodapé do card", name: "meta", widget: "string" } ] } ] }
+          - { label: "Depoimentos", name: "depoimentos", widget: "object", collapsed: true, fields: [
+              { label: "Rótulo", name: "rotulo", widget: "string" },
+              { label: "Título", name: "titulo", widget: "string" },
+              { label: "Nota", name: "nota", widget: "text" },
+              { label: "Depoimentos", name: "itens", widget: "list", fields: [
+                  { label: "Selo de aviso (deixe vazio quando o depoimento for real)", name: "selo", widget: "string", required: false },
+                  { label: "Depoimento", name: "texto", widget: "text" },
+                  { label: "Nome", name: "autor", widget: "string" },
+                  { label: "Cargo e empresa", name: "cargo", widget: "string" } ] } ] }
+          - { label: "Processo", name: "processo", widget: "object", collapsed: true, fields: [
+              { label: "Rótulo", name: "rotulo", widget: "string" },
+              { label: "Título", name: "titulo", widget: "string" },
+              { label: "Nota", name: "nota", widget: "text" },
+              { label: "Etapas", name: "etapas", widget: "list", fields: [
+                  { label: "Número", name: "numero", widget: "string" },
+                  { label: "Título", name: "titulo", widget: "string" },
+                  { label: "Texto", name: "texto", widget: "text" } ] } ] }
+          - { label: "Dúvidas", name: "faq", widget: "object", collapsed: true, fields: [
+              { label: "Rótulo", name: "rotulo", widget: "string" },
+              { label: "Título", name: "titulo", widget: "string" },
+              { label: "Nota", name: "nota", widget: "text" },
+              { label: "Perguntas", name: "itens", widget: "list", fields: [
+                  { label: "Pergunta", name: "pergunta", widget: "string" },
+                  { label: "Resposta", name: "resposta", widget: "text" } ] } ] }
+          - { label: "Chamada final", name: "cta_final", widget: "object", collapsed: true, fields: [
+              { label: "Título", name: "titulo", widget: "string" },
+              { label: "Texto", name: "texto", widget: "text" },
+              { label: "Botão", name: "botao", widget: "string" } ] }
