@@ -161,25 +161,25 @@
   "depoimentos": {
     "rotulo": "Depoimentos",
     "titulo": "O que dizem os clientes",
-    "nota": "Espaço reservado — depoimentos reais entram aqui assim que confirmados",
+    "nota": "Quem já passou pelo processo, contando o que mudou",
     "itens": [
       {
-        "selo": "Exemplo — substituir antes de publicar",
-        "texto": "A gente esperava um site bonito. Recebeu isso e uma estrutura que já nasceu pensando em como cada visitante vira reunião — não só em como a página parece.",
-        "autor": "Marcos Teixeira",
-        "cargo": "Sócio-diretor · Fenix Assessoria"
+        "selo": "",
+        "texto": "Esperávamos um site legal, mas ao invés disso recebemos uma estrutura que já nasceu pensando em como cada visitante vira reunião — não só em como a página parece.",
+        "autor": "Lucas Pinheiro",
+        "cargo": "COO · Fenix Assessoria"
       },
       {
-        "selo": "Exemplo — substituir antes de publicar",
-        "texto": "Depois do primeiro mês, editamos o site sozinhos três vezes — sem abrir chamado, sem esperar desenvolvedor. Foi a primeira vez que uma agência entregou isso de verdade.",
-        "autor": "Camila Pereira",
-        "cargo": "Sócia fundadora · Pereira Advogados"
+        "selo": "",
+        "texto": "Agora temos independência em nosso site, editamos e fizemos atualizações sozinhos três vezes — sem abrir chamado, sem esperar desenvolvedor. Foi a primeira vez que uma agência entregou isso de verdade.",
+        "autor": "Alice Spindola",
+        "cargo": "Head de Marketing · Pereira Advogados"
       },
       {
-        "selo": "Exemplo — substituir antes de publicar",
-        "texto": "Temos empreendimentos com públicos bem diferentes. O site deu conta de organizar isso sem virar dez sites separados, e ficou fácil trocar informação de lançamento sem depender de ninguém.",
-        "autor": "Juliana Martins",
-        "cargo": "Diretora comercial · TMG Incorporadora"
+        "selo": "",
+        "texto": "Temos empreendimentos com públicos bem diferentes. O site nos ajudou a organizar e atender os diversos públicos, e também impulsionou nossas vendas e captação de novos clientes.",
+        "autor": "Everson",
+        "cargo": "CEO · TMG Incorporadora"
       }
     ]
   },
