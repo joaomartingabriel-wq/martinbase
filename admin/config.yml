@@ -167,3 +167,158 @@ collections:
               { label: "Título", name: "titulo", widget: "string" },
               { label: "Texto", name: "texto", widget: "text" },
               { label: "Botão", name: "botao", widget: "string" } ] }
+
+  # ══════════════════════════════════════════════════════════
+  #  PÁGINA PARA PSICÓLOGOS — arquivo data/psicologos.json
+  # ══════════════════════════════════════════════════════════
+  - name: "psicologos"
+    label: "Página — Psicólogos"
+    files:
+
+      - name: "conteudo"
+        label: "Landing page de psicólogos"
+        file: "data/psicologos.json"
+        description: "Conteúdo da página martinbase.com/psicologos. Cada bloco abaixo é uma seção da página."
+        fields:
+          - label: "SEO — como aparece no Google e no WhatsApp"
+            name: "seo"
+            widget: "object"
+            fields:
+              - { label: "Título da página", name: "titulo", widget: "string" }
+              - { label: "Descrição (até ~155 caracteres)", name: "descricao", widget: "text" }
+
+          - label: "Topo da página"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Etiqueta pequena", name: "kicker", widget: "string" }
+              - { label: "Título — primeira parte", name: "titulo_inicio", widget: "string" }
+              - { label: "Título — parte em verde", name: "titulo_destaque", widget: "string" }
+              - { label: "Subtítulo", name: "subtitulo", widget: "text" }
+              - { label: "Botão principal", name: "cta_primario", widget: "string" }
+              - { label: "Botão secundário", name: "cta_secundario", widget: "string" }
+              - { label: "Mensagem que abre no WhatsApp", name: "wa_msg", widget: "string" }
+              - { label: "Selos (3 itens curtos)", name: "selos", widget: "list", field: { label: "Selo", name: "selo", widget: "string" } }
+
+          - label: "O cenário — onde o paciente se perde"
+            name: "problema"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Rótulo", name: "rotulo", widget: "string" }
+              - { label: "Título", name: "titulo", widget: "string" }
+              - { label: "Nota", name: "nota", widget: "text" }
+              - { label: "Pontos", name: "itens", widget: "list", fields: [
+                  { label: "Número", name: "numero", widget: "string" },
+                  { label: "Título", name: "titulo", widget: "string" },
+                  { label: "Texto", name: "texto", widget: "text" } ] }
+
+          - label: "Presença digital — por que isso importa"
+            name: "valor"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Rótulo", name: "rotulo", widget: "string" }
+              - { label: "Título", name: "titulo", widget: "string" }
+              - { label: "Declaração — primeira linha", name: "declaracao_1", widget: "string" }
+              - { label: "Declaração — segunda linha (em verde)", name: "declaracao_2", widget: "string" }
+              - { label: "Ideias", name: "itens", widget: "list", fields: [
+                  { label: "Número", name: "numero", widget: "string" },
+                  { label: "Título", name: "titulo", widget: "string" },
+                  { label: "Texto", name: "texto", widget: "text" } ] }
+              - { label: "Frase de fechamento (destacada em verde)", name: "fecho", widget: "text" }
+
+          - label: "O que você recebe"
+            name: "entrega"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Rótulo", name: "rotulo", widget: "string" }
+              - { label: "Título", name: "titulo", widget: "string" }
+              - { label: "Nota", name: "nota", widget: "text" }
+              - { label: "Itens", name: "itens", widget: "list", fields: [
+                  { label: "Título", name: "titulo", widget: "string" },
+                  { label: "Texto", name: "texto", widget: "text" } ] }
+
+          - label: "Prova — case da área"
+            name: "prova"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Rótulo", name: "rotulo", widget: "string" }
+              - { label: "Título", name: "titulo", widget: "string" }
+              - { label: "Nome do cliente", name: "case_nome", widget: "string" }
+              - { label: "Área", name: "case_area", widget: "string" }
+              - { label: "Endereço do site (sem https)", name: "case_url", widget: "string" }
+              - { label: "Descrição do projeto", name: "case_texto", widget: "text" }
+              - { label: "Nota ao lado", name: "nota", widget: "text" }
+
+          - label: "Como funciona"
+            name: "processo"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Rótulo", name: "rotulo", widget: "string" }
+              - { label: "Título", name: "titulo", widget: "string" }
+              - { label: "Nota", name: "nota", widget: "text" }
+              - { label: "Etapas", name: "etapas", widget: "list", fields: [
+                  { label: "Número", name: "numero", widget: "string" },
+                  { label: "Título", name: "titulo", widget: "string" },
+                  { label: "Texto", name: "texto", widget: "text" } ] }
+
+          - label: "Investimento"
+            name: "investimento"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Rótulo", name: "rotulo", widget: "string" }
+              - { label: "Título", name: "titulo", widget: "string" }
+              - { label: "Faixa de preço (número grande)", name: "faixa", widget: "string" }
+              - { label: "Explicação da faixa", name: "faixa_nota", widget: "text" }
+              - { label: "Título da coluna do que inclui", name: "inclusos_titulo", widget: "string" }
+              - { label: "O que está incluído", name: "inclusos", widget: "list", field: { label: "Item", name: "item", widget: "string" } }
+              - { label: "Título da coluna do que não paga", name: "sem_titulo", widget: "string" }
+              - { label: "O que não paga", name: "sem", widget: "list", field: { label: "Item", name: "item", widget: "string" } }
+              - { label: "Nota final sobre domínio e hospedagem", name: "nota_final", widget: "text" }
+
+          - label: "Dúvidas"
+            name: "faq"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Rótulo", name: "rotulo", widget: "string" }
+              - { label: "Título", name: "titulo", widget: "string" }
+              - { label: "Nota", name: "nota", widget: "text" }
+              - { label: "Perguntas", name: "itens", widget: "list", fields: [
+                  { label: "Pergunta", name: "pergunta", widget: "string" },
+                  { label: "Resposta", name: "resposta", widget: "text" } ] }
+
+          - label: "Formulário de contato"
+            name: "form"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Rótulo", name: "rotulo", widget: "string" }
+              - { label: "Título", name: "titulo", widget: "string" }
+              - { label: "Nota", name: "nota", widget: "text" }
+              - { label: "Rótulo — nome", name: "campo_nome", widget: "string" }
+              - { label: "Rótulo — e-mail", name: "campo_email", widget: "string" }
+              - { label: "Rótulo — WhatsApp", name: "campo_whatsapp", widget: "string" }
+              - { label: "Rótulo — cidade", name: "campo_cidade", widget: "string" }
+              - { label: "Rótulo — situação", name: "campo_situacao", widget: "string" }
+              - { label: "Opções de situação", name: "opcoes_situacao", widget: "list", field: { label: "Opção", name: "opcao", widget: "string" } }
+              - { label: "Rótulo — mensagem", name: "campo_mensagem", widget: "string" }
+              - { label: "Texto do botão", name: "botao", widget: "string" }
+              - { label: "Frase alternativa ao formulário", name: "alternativa", widget: "string" }
+              - { label: "Texto do link de WhatsApp", name: "alternativa_cta", widget: "string" }
+              - { label: "Mensagem que abre no WhatsApp", name: "wa_msg", widget: "string" }
+
+          - label: "Chamada final"
+            name: "cta_final"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Título", name: "titulo", widget: "string" }
+              - { label: "Texto", name: "texto", widget: "text" }
+              - { label: "Botão", name: "botao", widget: "string" }
+              - { label: "Mensagem que abre no WhatsApp", name: "wa_msg", widget: "string" }
