@@ -1,0 +1,201 @@
+{
+  "seo": {
+    "titulo": "Site para Psicólogos — Martin Base",
+    "descricao": "Site para psicólogo que apresenta seu trabalho e deixa o paciente marcar direto com você. Sem comissão por sessão, sem mensalidade de agência, domínio no seu nome."
+  },
+  "hero": {
+    "kicker": "Site para psicólogos",
+    "titulo_inicio": "O paciente procura seu nome antes de marcar.",
+    "titulo_destaque": "O que ele encontra?",
+    "subtitulo": "Site próprio para psicólogos: apresenta sua abordagem, responde o que o paciente precisa saber antes de decidir, e deixa ele marcar direto com você. Sem comissão por sessão, sem mensalidade de agência, com o domínio registrado no seu nome.",
+    "cta_primario": "Falar sobre o meu caso",
+    "cta_secundario": "Por que isso importa ↓",
+    "wa_msg": "Olá! Vi a página de sites para psicólogos e quero saber mais.",
+    "selos": [
+      "Domínio no seu nome",
+      "Você edita sozinho",
+      "Sem mensalidade"
+    ]
+  },
+  "problema": {
+    "rotulo": "O cenário",
+    "titulo": "Onde o paciente se perde no caminho até você",
+    "nota": "Três pontos de fuga que não aparecem em lugar nenhum — porque quem desiste não avisa.",
+    "itens": [
+      {
+        "numero": "01",
+        "titulo": "Na busca",
+        "texto": "Quem procura \"psicólogo\" na sua cidade encontra Zenklub, Vittude e Psicologia Viva ocupando a primeira página. Profissional com consultório próprio quase não aparece — e quem não aparece não é considerado."
+      },
+      {
+        "numero": "02",
+        "titulo": "Na comissão",
+        "texto": "Paciente que chega por plataforma leva uma fatia de cada sessão, para sempre. Não é uma taxa de entrada: é um custo que se repete em toda sessão daquele paciente, pelos anos que ele ficar."
+      },
+      {
+        "numero": "03",
+        "titulo": "Na dúvida",
+        "texto": "Quem chega no seu Instagram não encontra abordagem, formato de atendimento nem como funciona a primeira sessão. E não pergunta — vai no próximo nome da lista."
+      }
+    ]
+  },
+  "valor": {
+    "rotulo": "Presença digital",
+    "titulo": "Por que isso importa",
+    "declaracao_1": "Quem não é encontrado não é considerado.",
+    "declaracao_2": "Quem é encontrado e não mostra o próprio valor é comparado por preço.",
+    "itens": [
+      {
+        "numero": "01",
+        "titulo": "Existir no momento da decisão",
+        "texto": "A escolha de um psicólogo começa numa busca. Hoje ela acontece no Google e, cada vez mais, dentro das ferramentas de inteligência artificial — e as duas leem páginas, não perfis de rede social. Não aparecer nesse momento não significa aparecer depois. Significa não estar entre as opções que a pessoa considerou."
+      },
+      {
+        "numero": "02",
+        "titulo": "Mostrar o que não cabe num perfil",
+        "texto": "Sua formação, sua abordagem, para quem você atende, como conduz a primeira sessão, o que distingue o seu trabalho do de outro profissional da mesma linha. Nada disso cabe numa bio de 150 caracteres nem sobrevive à rolagem de um feed. Quando essa informação falta, sobra o preço como critério — e aí você disputa por baixo com quem não tem o seu preparo."
+      },
+      {
+        "numero": "03",
+        "titulo": "Ocupar um território que é seu",
+        "texto": "Perfil de rede social e plataforma são espaço emprestado: as regras mudam, o alcance cai, a comissão sobe e a relação com o paciente passa por um intermediário. Um site com domínio no seu nome é o único endereço da internet onde quem decide é você."
+      }
+    ],
+    "fecho": "Um site não substitui a indicação — ele faz a indicação funcionar. Quando alguém te recomenda, a primeira coisa que a pessoa faz é procurar o seu nome. O que ela encontra nesse momento decide se a indicação vira consulta."
+  },
+  "entrega": {
+    "rotulo": "O que você recebe",
+    "titulo": "Um site que trabalha enquanto você atende",
+    "nota": "Escopo fechado, sem surpresa na entrega.",
+    "itens": [
+      {
+        "titulo": "Apresentação do seu trabalho",
+        "texto": "Abordagem, formação, para quem você atende e como funciona a primeira sessão — escrito para quem nunca fez terapia e está decidindo."
+      },
+      {
+        "titulo": "Agendamento direto",
+        "texto": "Botão de WhatsApp fixo em qualquer tela. O paciente marca às 23h de um domingo sem depender de você estar com o celular na mão."
+      },
+      {
+        "titulo": "Encontrável no Google e na IA",
+        "texto": "Estrutura, títulos e descrições feitos para busca. E conteúdo em texto, que é o que ChatGPT e assistentes conseguem ler — perfil de rede social eles não leem."
+      },
+      {
+        "titulo": "Você edita sozinho",
+        "texto": "Painel simples para trocar texto, foto, valor ou horário. Sem abrir chamado, sem esperar desenvolvedor, sem custo por alteração."
+      },
+      {
+        "titulo": "Rápido no celular",
+        "texto": "É de onde vem quase todo o acesso. Site que demora três segundos para abrir perde metade de quem clicou."
+      },
+      {
+        "titulo": "Endereço no seu nome",
+        "texto": "O domínio é registrado em seu CPF ou CNPJ. Se um dia quiser levar o site para outro lugar, leva — sem pedir autorização a ninguém."
+      }
+    ]
+  },
+  "prova": {
+    "rotulo": "Prova",
+    "titulo": "Já entregamos para a sua área",
+    "case_nome": "Bruna Martin",
+    "case_area": "Psicologia clínica",
+    "case_url": "psicologabrunamartin.com",
+    "case_texto": "Site institucional com apresentação da abordagem, conteúdo editável pela própria profissional e contato direto por WhatsApp. No ar, em produção, sendo atualizado por ela sem depender da agência.",
+    "nota": "Além da psicologia, atendemos massoterapia, estética e formação profissional — públicos com a mesma lógica de decisão: a pessoa pesquisa antes, e decide pelo que encontra."
+  },
+  "processo": {
+    "rotulo": "Como funciona",
+    "titulo": "Do primeiro contato ao site no ar",
+    "nota": "Prazo típico de 3 a 5 semanas, conforme o conteúdo que já existir.",
+    "etapas": [
+      { "numero": "01", "titulo": "Conversa", "texto": "Uma hora para entender como o paciente chega até você hoje e o que precisaria mudar. Se eu achar que não faz sentido, eu digo." },
+      { "numero": "02", "titulo": "Proposta", "texto": "Escopo, prazo e valor fechado, por escrito. Sem surpresa depois e sem cobrança por item." },
+      { "numero": "03", "titulo": "Construção", "texto": "Redação dos textos, layout e montagem. Duas rodadas de revisão inclusas." },
+      { "numero": "04", "titulo": "No ar", "texto": "Domínio apontado, site publicado e treinamento gravado do painel. Noventa dias de garantia técnica." }
+    ]
+  },
+  "investimento": {
+    "rotulo": "Investimento",
+    "titulo": "Quanto custa",
+    "faixa": "A partir de R$ 500",
+    "faixa_nota": "Pagamento à vista ou parcelado. O valor final depende do tamanho do site e de quanto conteúdo já existe — e sai fechado na proposta, antes de qualquer trabalho começar.",
+    "inclusos_titulo": "O que já está incluído",
+    "inclusos": [
+      "Redação de todos os textos",
+      "Painel de edição e treinamento",
+      "Configuração de domínio e hospedagem",
+      "Duas rodadas de revisão",
+      "90 dias de garantia técnica"
+    ],
+    "sem_titulo": "O que você não paga",
+    "sem": [
+      "Mensalidade de agência",
+      "Comissão por paciente",
+      "Taxa por alteração de texto ou foto",
+      "Aluguel do seu próprio domínio"
+    ],
+    "nota_final": "Domínio e hospedagem são contratados direto no seu nome. O domínio custa cerca de R$ 40 por ano e a hospedagem, na estrutura que uso, é gratuita nesse porte. A configuração é por minha conta."
+  },
+  "faq": {
+    "rotulo": "Dúvidas",
+    "titulo": "O que costumam perguntar antes de começar",
+    "nota": "Não achou a sua? Manda no WhatsApp que eu respondo direto.",
+    "itens": [
+      {
+        "pergunta": "Eu já tenho Instagram. Preciso mesmo de site?",
+        "resposta": "São coisas diferentes. O Instagram alcança quem já te segue ou foi indicado; o site atende quem está procurando agora e ainda não te conhece. E tem uma diferença técnica que pesa cada vez mais: o Google e as ferramentas de IA leem o conteúdo de um site e não leem o de um perfil. Quem só tem perfil não aparece nessas respostas."
+      },
+      {
+        "pergunta": "Eu uso plataforma. Vale a pena ter site também?",
+        "resposta": "A maioria dos psicólogos que atendo usa os dois. A plataforma traz volume e cobra por isso em cada sessão; o site traz o paciente direto, sem intermediário. Não é escolher um — é ter um canal onde o paciente que já decidiu procurar você não precise passar por ninguém no meio."
+      },
+      {
+        "pergunta": "O que posso e não posso divulgar?",
+        "resposta": "O site é construído respeitando as regras de publicidade da profissão: sem promessa de cura, sem comparação com outros profissionais, com identificação e registro visíveis. Nenhuma dessas limitações impede um site que converte — elas só definem o tom, e nós já trabalhamos dentro delas."
+      },
+      {
+        "pergunta": "Quanto tempo leva?",
+        "resposta": "De três a cinco semanas, conforme o conteúdo que já existir. Se você já tiver textos e fotos organizados, fica no limite de baixo. Se a redação for toda minha, no de cima."
+      },
+      {
+        "pergunta": "Depois de pronto, eu consigo mexer sozinha?",
+        "resposta": "Sim, e sem custo. Você recebe um painel para trocar texto, foto, valores e horários, mais um treinamento gravado. Mudança de preço ou de horário não deveria exigir abrir chamado com ninguém."
+      },
+      {
+        "pergunta": "E se eu já tenho um site?",
+        "resposta": "Me manda o endereço. Em muitos casos o que falta é ajuste de estrutura e conteúdo, não um site novo — e eu digo isso mesmo quando significa um projeto menor para mim."
+      },
+      {
+        "pergunta": "Vou precisar pagar mensalidade?",
+        "resposta": "Não. O projeto é pago uma vez. Domínio e hospedagem ficam no seu nome e contratados direto por você, sem passar por mim. Existe um serviço opcional de manutenção para quem prefere não cuidar disso — opcional de verdade, e o site continua sendo seu em qualquer cenário."
+      }
+    ]
+  },
+  "form": {
+    "rotulo": "Contato",
+    "titulo": "Me conta a sua situação",
+    "nota": "Respondo em até um dia útil. Sem compromisso e sem ligação de vendas.",
+    "campo_nome": "Seu nome",
+    "campo_email": "E-mail",
+    "campo_whatsapp": "WhatsApp",
+    "campo_cidade": "Cidade",
+    "campo_situacao": "Como está hoje",
+    "opcoes_situacao": [
+      "Não tenho site",
+      "Tenho site, mas não funciona bem",
+      "Atendo por plataforma e quero sair",
+      "Ainda estou pesquisando"
+    ],
+    "campo_mensagem": "Alguma coisa que eu deva saber (opcional)",
+    "botao": "Enviar",
+    "alternativa": "Prefere conversar agora?",
+    "alternativa_cta": "Chamar no WhatsApp",
+    "wa_msg": "Olá! Sou psicólogo(a) e quero saber mais sobre o site."
+  },
+  "cta_final": {
+    "titulo": "Vamos ver se faz sentido para o seu consultório?",
+    "texto": "Me conta como o paciente chega até você hoje. Se eu achar que um site não resolve o seu caso, eu digo — é mais barato para nós dois descobrir isso agora.",
+    "botao": "Falar sobre o meu caso",
+    "wa_msg": "Olá! Sou psicólogo(a) e quero conversar sobre um site."
+  }
+}
