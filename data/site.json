@@ -476,6 +476,243 @@
   "empresa": {
     "nome": "Martin Base",
     "slogan": "Web & Estratégia",
+    "whatsapp": "5551992616885",
+    "whatsapp_msg": "Olá! Quero um site assim.",
+    "telefone_exibicao": "(51) 99261-6885",
+    "email": "joao@martinbase.com",
+    "site": "martinbase.com",
+    "cidade": "Novo Hamburgo",
+    "estado": "RS",
+    "abrangencia": "Atendimento em todo o Brasil"
+  },
+
+  "seo": {
+    "titulo": "Martin Base — Criação de Sites com Visão de Negócio",
+    "descricao": "Agência de web design e desenvolvimento com 15 anos de gestão, finanças e governança por trás. Sites que convertem, dão credibilidade e você mesmo edita."
+  },
+
+  "hero": {
+    "kicker_prefixo": "Site institucional para",
+    "kicker_palavras": ["PMEs", "grupos empresariais", "indústria", "saúde", "educação"],
+    "titulo_inicio": "Site não é vitrine. É",
+    "titulo_destaque": "ferramenta de negócio",
+    "titulo_fim": ".",
+    "subtitulo": "Martin Base une 15 anos de gestão, finanças e governança em empresas reais a um time dedicado de design e desenvolvimento. Cada site que entregamos existe para converter, dar credibilidade e funcionar com autonomia — sem te prender à agência pra cada ajuste.",
+    "cta_primario": "Quero um site assim →",
+    "cta_secundario": "Ver portfólio",
+    "painel_ref": "REF:// BASE_01",
+    "painel_status": "Operando",
+    "painel_linhas": [
+      { "chave": "Estrutura", "valor": "definida no briefing" },
+      { "chave": "Conteúdo", "valor": "editável pelo cliente" },
+      { "chave": "Manutenção", "valor": "sem dependência" }
+    ]
+  },
+
+  "metricas": [
+    { "numero": "15", "sufixo": "+", "label": "anos em gestão, finanças e governança antes da agência" },
+    { "numero": "200", "sufixo": "+", "label": "empresas atendidas" },
+    { "numero": "100", "sufixo": "%", "label": "dos sites com conteúdo de texto editável pelo cliente, sem depender de dev" }
+  ],
+
+  "marquee": [
+    "Visão de Negócio",
+    "Governança de Conteúdo",
+    "Estrutura para Conversão",
+    "Autonomia Total",
+    "Design sob Medida",
+    "Time Dedicado"
+  ],
+
+  "diferencial": {
+    "rotulo": "Diferencial",
+    "titulo": "Visão de negócio aplicada ao design",
+    "nota": "Não viemos do design tradicional — viemos da gestão. É essa lente, aplicada por um time inteiro, que muda o resultado.",
+    "pilares": [
+      {
+        "indice": "01",
+        "titulo": "Negócio antes de tela",
+        "texto": "Antes de abrir qualquer editor, entendemos como o seu negócio respira, acontece e encanta. A estrutura do site nasce disso — não de um template bonito."
+      },
+      {
+        "indice": "02",
+        "titulo": "Governança de conteúdo",
+        "texto": "Conteúdo vive separado do código, num CMS que seu time usa sozinho. Trocar um preço ou uma foto não devia exigir um chamado pra desenvolvedor."
+      },
+      {
+        "indice": "03",
+        "titulo": "Dados, não estética pela estética",
+        "texto": "Cada decisão de layout — onde entra o CTA, o que vem primeiro, o que se mede — é pensada como quem já respondeu por resultado, não só por entrega visual."
+      }
+    ]
+  },
+
+  "portfolio": {
+    "rotulo": "Portfólio",
+    "titulo": "Alguns projetos recentes",
+    "nota": "Três nichos diferentes — a mesma disciplina de estrutura por trás. Rolagem automática — passe o mouse pra pausar.",
+    "cases": [
+      {
+        "tag": "Indústria gráfica · Institucional",
+        "titulo": "BEJ Group — Gráfica & Editora",
+        "texto": "Site institucional para uma gráfica premium de Novo Hamburgo (RS). Identidade escura e sóbria, com selo/emblema de qualidade e navegação por portfólio, serviços e canal editorial — construído pra sustentar orçamento via WhatsApp como conversão principal.",
+        "url": "https://www.bejgroup.com.br/",
+        "dominio": "bejgroup.com.br",
+        "imagem": "/images/img-portfolio-bej.png",
+        "cor_barra": "#0B0B0A",
+        "cor_url": "#C9A15F",
+        "cor_fundo": "#0E0D0B"
+      },
+      {
+        "tag": "Educação · Formação profissional",
+        "titulo": "Michele Fernández Academy",
+        "texto": "Landing page de captação de matrículas para cursos de estética e massoterapia. Headline direta, foto de autoridade e CTA de WhatsApp fixo — página pensada pra conversão de turma, não pra navegação institucional longa.",
+        "url": "https://michelefernandezacademy.com/",
+        "dominio": "michelefernandezacademy.com",
+        "imagem": "/images/img-portfolio-michele.png",
+        "cor_barra": "#0D0D0C",
+        "cor_url": "#9FC8C2",
+        "cor_fundo": "#1C1613"
+      },
+      {
+        "tag": "Saúde · Psicoterapia",
+        "titulo": "Bruna Martin — Psicóloga",
+        "texto": "Site institucional para psicóloga com atendimento presencial (Novo Hamburgo) e online. Paleta clara e verde-oliva, tom acolhedor sem perder o registro profissional — estrutura por especialidades de atendimento e agendamento direto.",
+        "url": "https://www.psicologabrunamartin.com/",
+        "dominio": "psicologabrunamartin.com",
+        "imagem": "/images/img-portfolio-bruna.png",
+        "cor_barra": "#FFFFFF",
+        "cor_url": "#5F6F45",
+        "cor_fundo": "#EDEDEA"
+      }
+    ]
+  },
+
+  "servicos": {
+    "rotulo": "Serviços",
+    "titulo": "O projeto certo para o momento do seu negócio",
+    "nota": "Escopo definido caso a caso — nada de pacote engessado. Proposta objetiva pelo WhatsApp.",
+    "itens": [
+      {
+        "titulo": "Landing Page",
+        "destaque": false,
+        "selo": "",
+        "lead": "Página única focada em uma conversão só. Ideal para campanha, lançamento ou captação de turma.",
+        "bullets": [
+          "Estrutura desenhada para um objetivo único",
+          "WhatsApp integrado como canal principal",
+          "Pronta para receber tráfego pago"
+        ],
+        "meta": "ESCOPO ENXUTO · ENTREGA RÁPIDA"
+      },
+      {
+        "titulo": "Site Institucional",
+        "destaque": true,
+        "selo": "Mais procurado",
+        "lead": "Presença completa para posicionar a empresa com autoridade e sustentar o processo comercial.",
+        "bullets": [
+          "Múltiplas páginas com arquitetura pensada no funil",
+          "Painel próprio para o time editar o conteúdo",
+          "Base preparada para crescer sem refazer tudo"
+        ],
+        "meta": "ESCOPO COMPLETO · CMS INCLUÍDO"
+      },
+      {
+        "titulo": "Projeto Sob Medida",
+        "destaque": false,
+        "selo": "",
+        "lead": "Quando o negócio tem uma operação própria e o site precisa conversar com ela.",
+        "bullets": [
+          "Estrutura desenhada a partir do seu processo",
+          "Integrações com os sistemas que você já usa",
+          "Acompanhamento contínuo após a entrega"
+        ],
+        "meta": "ESCOPO SOB CONSULTA"
+      }
+    ]
+  },
+
+  "depoimentos": {
+    "rotulo": "Depoimentos",
+    "titulo": "O que dizem os clientes",
+    "nota": "Quem já passou pelo processo, contando o que mudou",
+    "itens": [
+      {
+        "selo": "",
+        "texto": "Esperávamos um site legal, mas ao invés disso recebemos uma estrutura que já nasceu pensando em como cada visitante vira reunião — não só em como a página parece.",
+        "autor": "Lucas Pinheiro",
+        "cargo": "COO · Fenix Assessoria"
+      },
+      {
+        "selo": "",
+        "texto": "Agora temos independência em nosso site, editamos e fizemos atualizações sozinhos três vezes — sem abrir chamado, sem esperar desenvolvedor. Foi a primeira vez que uma agência entregou isso de verdade.",
+        "autor": "Alice Spindola",
+        "cargo": "Head de Marketing · Pereira Advogados"
+      },
+      {
+        "selo": "",
+        "texto": "Temos empreendimentos com públicos bem diferentes. O site nos ajudou a organizar e atender os diversos públicos, e também impulsionou nossas vendas e captação de novos clientes.",
+        "autor": "Everson",
+        "cargo": "CEO · TMG Incorporadora"
+      }
+    ]
+  },
+
+  "processo": {
+    "rotulo": "Processo",
+    "titulo": "Do briefing ao site no ar",
+    "nota": "Mesmo modelo de entrega em todo projeto — previsível pra você e pra nós",
+    "etapas": [
+      { "numero": "01", "titulo": "Estratégia", "texto": "Levantamento de negócio, público e conteúdo real — nada de briefing genérico." },
+      { "numero": "02", "titulo": "Construção", "texto": "Cada etapa fica registrada e com histórico guardado, e o conteúdo já nasce separado do visual, pronto pra ser editado depois." },
+      { "numero": "03", "titulo": "Publicação", "texto": "Site publicado em uma estrutura rápida e estável, sem depender de manutenção técnica constante." },
+      { "numero": "04", "titulo": "Autonomia", "texto": "Você edita textos, preços e imagens direto pelo CMS, sem depender da agência." }
+    ]
+  },
+
+  "faq": {
+    "rotulo": "Dúvidas",
+    "titulo": "O que costumam perguntar antes de começar",
+    "nota": "Não achou a sua? Manda no WhatsApp — a gente responde direto.",
+    "itens": [
+      {
+        "pergunta": "Depois de pronto, eu consigo mexer no site sozinho?",
+        "resposta": "Sim — é justamente o ponto central do nosso modelo. Todo texto e imagem que você provavelmente vai querer trocar fica num painel de edição simples, separado do código. Mudar um preço, uma foto ou um parágrafo não exige abrir chamado nem esperar desenvolvedor."
+      },
+      {
+        "pergunta": "O site é meu? Fico com o domínio e o conteúdo?",
+        "resposta": "É seu. Não trabalhamos com plataforma fechada que prende o cliente: o domínio fica no seu nome e o projeto pode ser levado pra outro lugar se um dia você quiser. Nada de cobrar pra \"liberar\" o que já é seu."
+      },
+      {
+        "pergunta": "Vocês atendem fora da região?",
+        "resposta": "Sim, atendemos de forma remota em todo o Brasil. Briefing, alinhamentos, revisões e entrega acontecem online, com a mesma proximidade de quem está do lado."
+      },
+      {
+        "pergunta": "Como funciona o processo, do começo ao fim?",
+        "resposta": "Começa por uma conversa de negócio — como você vende, quem é seu público, o que já existe de conteúdo. A partir daí definimos escopo e prazo, construímos, publicamos e te entregamos o painel de edição junto com uma orientação de uso. Você acompanha a evolução durante todo o caminho."
+      },
+      {
+        "pergunta": "Quanto custa e qual o prazo?",
+        "resposta": "Depende do escopo real do projeto — por isso não trabalhamos com tabela fixa. Conte pelo WhatsApp o que seu negócio precisa e você recebe uma proposta objetiva, com valor e prazo definidos antes de qualquer compromisso."
+      }
+    ]
+  },
+
+  "cta_final": {
+    "titulo": "Vamos construir a base do seu próximo site?",
+    "texto": "Conte o que seu negócio precisa — nicho, prazo, conteúdo que já existe. Resposta com proposta objetiva, sem enrolação.",
+    "botao": "Quero um site assim →"
+  },
+
+  "rodape": {
+    "tagline": "Web design e desenvolvimento com visão de negócio. Sites que convertem, dão credibilidade e você mesmo mantém.",
+    "copyright": "© 2026 MARTIN BASE — TODOS OS DIREITOS RESERVADOS"
+  }
+}
+{
+  "empresa": {
+    "nome": "Martin Base",
+    "slogan": "Web & Estratégia",
     "whatsapp": "5551997749263",
     "whatsapp_msg": "Olá! Quero um site assim.",
     "telefone_exibicao": "(51) 99774-9263",
