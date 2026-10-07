@@ -36,7 +36,25 @@
     --font-mono: 'IBM Plex Mono', monospace;
   }
   * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+  /* Foco visível para navegação por teclado (WCAG 2.2) */
+  :focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* Pular para o conteúdo */
+  .skip-link {
+    position: absolute; left: -9999px; top: 0;
+    font-family: var(--font-mono); font-size: 0.8rem;
+  }
+  .skip-link:focus {
+    left: 1rem; top: 1rem; z-index: 100;
+    background: var(--accent); color: var(--paper);
+    padding: 0.8em 1.4em;
+  }
   body {
     margin: 0;
     background: var(--paper);
@@ -157,7 +175,8 @@
   }
   .marquee-track span::before { content: ''; width: 5px; height: 5px; background: #06170D; display: inline-block; }
   @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-  .marquee-wrap:hover .marquee-track { animation-play-state: paused; }
+  .marquee-wrap:hover .marquee-track,
+  .marquee-wrap:focus-within .marquee-track { animation-play-state: paused; }
 
   /* ---------- Section scaffolding ---------- */
   section { padding: var(--space-5) 0; border-bottom: 1px solid var(--line); }
@@ -379,6 +398,8 @@
 </head>
 <body>
 
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
   <div class="progress-bar" id="progressBar"></div>
 
   <header class="nav">
@@ -403,6 +424,8 @@
       <a data-cms="hero.cta_primario" data-cms-wa href="https://wa.me/5551992616885?text=Ol%C3%A1!%20Quero%20um%20site%20assim." target="_blank" rel="noopener" style="color:var(--accent);">Quero um site assim →</a>
     </div>
   </header>
+
+  <main id="conteudo">
 
   <section class="hero">
     <div class="wrap">
@@ -717,6 +740,8 @@
       <a class="btn-primary magnetic" data-cms="cta_final.botao" data-cms-wa href="https://wa.me/5551992616885?text=Ol%C3%A1!%20Quero%20um%20site%20assim." target="_blank" rel="noopener">Quero um site assim →</a>
     </div>
   </section>
+
+  </main>
 
   <footer>
     <div class="wrap">
