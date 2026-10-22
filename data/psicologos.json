@@ -111,7 +111,7 @@
       { "numero": "01", "titulo": "Conversa", "texto": "Uma hora para entender como o paciente chega até você hoje e o que precisaria mudar. Se eu achar que não faz sentido, eu digo." },
       { "numero": "02", "titulo": "Proposta", "texto": "Escopo, prazo e valor fechado, por escrito. Sem surpresa depois e sem cobrança por item." },
       { "numero": "03", "titulo": "Construção", "texto": "Redação dos textos, layout e montagem. Duas rodadas de revisão inclusas." },
-      { "numero": "04", "titulo": "No ar", "texto": "Domínio apontado, site publicado e treinamento gravado do painel. Noventa dias de garantia técnica." }
+{ "numero": "04", "titulo": "No ar", "texto": "Domínio apontado, site publicado e treinamento gravado do painel. 90 dias de garantia técnica." }
     ]
   },
   "investimento": {
@@ -155,10 +155,10 @@
       },
       {
         "pergunta": "Quanto tempo leva?",
-        "resposta": "De três a cinco semanas, conforme o conteúdo que já existir. Se você já tiver textos e fotos organizados, fica no limite de baixo. Se a redação for toda minha, no de cima."
+"resposta": "De 3 a 5 semanas, conforme o conteúdo que já existir. Se você já tiver textos e fotos organizados, fica no limite de baixo. Se a redação for toda minha, no de cima."
       },
       {
-        "pergunta": "Depois de pronto, eu consigo mexer sozinha?",
+"pergunta": "Depois de pronto, consigo mexer por conta própria?",
         "resposta": "Sim, e sem custo. Você recebe um painel para trocar texto, foto, valores e horários, mais um treinamento gravado. Mudança de preço ou de horário não deveria exigir abrir chamado com ninguém."
       },
       {
