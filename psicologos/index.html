@@ -541,6 +541,7 @@
       msg.textContent = 'Preencha ao menos nome e e-mail.'; return;
     }
     var key = $('w3key').value || W3_KEY;
+    $('w3key').value = key;
 
     /* sem chave configurada: encaminha para o WhatsApp com os dados preenchidos */
     if(!key){
