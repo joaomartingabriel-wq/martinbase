@@ -13,7 +13,7 @@ window.MB_TAGS = {
 };
 
 (function () {
-  var ids = [MB_TAGS.ga4, MB_TAGS.ads].filter(Boolean);
+var ids = [MB_TAGS.ga4, MB_TAGS.ads].filter(Boolean);
   if (!ids.length) return;
   window.dataLayer = window.dataLayer || [];
   window.gtag = function () { dataLayer.push(arguments); };
@@ -36,7 +36,8 @@ A pagina /psicologos ja tem o proprio listener no HTML - nao duplicar la. */
     if (!a || !window.gtag) return;
     var sec = a.closest('section, header, footer');
     var origem = a.id === 'floatWa' ? 'flutuante' : (sec && (sec.id || sec.tagName.toLowerCase())) || 'topo';
-    gtag('event', 'click_whatsapp', { pagina: 'home', origem: origem });
+var pag = location.pathname.replace(/^\/+|\/+$/g, '') || 'home';
+    gtag('event', 'click_whatsapp', { pagina: pag, origem: origem });
     if (MB_TAGS.ads && MB_TAGS.rot_whatsapp) {
       gtag('event', 'conversion', { send_to: MB_TAGS.ads + '/' + MB_TAGS.rot_whatsapp });
     }
