@@ -1,0 +1,6 @@
+# Atalhos da Martin Base - Cloudflare Pages
+# Formato: origem   destino   codigo
+# 302 = temporario, para o destino poder mudar sem ficar preso na cache.
+
+# Bio do Instagram. O UTM entra por aqui, entao o link no perfil fica curto.
+/ig   /links/?utm_source=ig&utm_medium=social&utm_content=bio   302
