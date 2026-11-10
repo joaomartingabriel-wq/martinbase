@@ -1,0 +1,49 @@
+{
+  "seo": {
+    "titulo": "Consultório Inteligente com o Claude · Martin Base",
+    "descricao": "Aprenda a usar o Claude com 2 guias e 10 skills prontas para psicólogas e psicólogos adiantarem as tarefas da semana, sem expor pacientes."
+  },
+  "oferta": {
+    "preco": "19,90",
+    "preco_de": "105,00",
+    "fim_promocao": "2026-11-30",
+    "checkout": "https://pay.kiwify.com.br/ikR6cn2"
+  },
+  "hero": {
+    "titulo": "As sessões são suas. O que fica entre elas, o Claude adianta.",
+    "destaque": "Aprenda a usar o Claude com 2 guias + 10 skills prontas",
+    "subtitulo": ", feitos para psicólogas e psicólogos adiantarem as tarefas da semana sem expor nenhum paciente."
+  },
+  "faq": [
+    {
+      "pergunta": "Preciso pagar pelo Claude?",
+      "resposta": "Não. Tudo funciona no plano gratuito. O plano pago dá mais uso por dia, e você decide depois se vale a pena."
+    },
+    {
+      "pergunta": "Nunca usei IA. Vou conseguir?",
+      "resposta": "Sim. O Guia 01 começa pela criação da conta e explica cada parte da tela, com exercícios do dia a dia do consultório."
+    },
+    {
+      "pergunta": "É ético usar IA no consultório?",
+      "resposta": "Como apoio ao trabalho administrativo e de escrita, sim, preservando o sigilo e mantendo a responsabilidade pelo conteúdo. Os guias mostram onde fica o limite."
+    },
+    {
+      "pergunta": "Como recebo?",
+      "resposta": "Por e-mail, logo após o pagamento. Na área de membros estão os PDFs e o arquivo com as 10 skills."
+    },
+    {
+      "pergunta": "Funciona no celular?",
+      "resposta": "Os guias, sim. A instalação das skills é mais simples pelo computador, no site claude.ai, e é feita uma única vez."
+    },
+    {
+      "pergunta": "Preciso instalar algum programa?",
+      "resposta": "Não. Tudo funciona no navegador, em claude.ai, ou no aplicativo do Claude, se você preferir."
+    }
+  ],
+  "contato": {
+    "whatsapp": "5551992616885",
+    "whatsapp_msg": "Olá! Tenho uma dúvida sobre o Consultório Inteligente.",
+    "telefone": "(51) 99261-6885",
+    "email": "atendimento@martinbase.com"
+  }
+}
