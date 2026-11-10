@@ -1,0 +1,557 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Consultório Inteligente com o Claude · Martin Base</title>
+<meta name="description" content="Aprenda a usar o Claude com 2 guias e 10 skills prontas para psicólogas e psicólogos adiantarem as tarefas da semana, sem expor pacientes.">
+<link rel="canonical" href="https://martinbase.com/consultorio-inteligente/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:url" content="https://martinbase.com/consultorio-inteligente/">
+<meta property="og:title" content="Consultório Inteligente com o Claude">
+<meta property="og:description" content="2 guias + 10 skills prontas para psicólogas e psicólogos usarem o Claude nas tarefas entre as sessões, sem expor pacientes.">
+<meta property="og:image" content="https://martinbase.com/consultorio-inteligente/assets/compartilhar.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#16233A">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='16' rx='0' fill='%2316233A'/%3E%3Crect y='16' width='32' height='16' fill='%23F2B33D'/%3E%3C/svg%3E">
+<link rel="preload" href="/consultorio-inteligente/assets/bricolage.woff2" as="font" type="font/woff2" crossorigin>
+<script src="/medicao.js"></script>
+<style>
+@font-face{font-family:"Bricolage";src:url(/consultorio-inteligente/assets/bricolage.woff2) format("woff2");font-weight:200 800;font-stretch:75% 100%;font-display:swap}
+:root{
+  --bg:#EEF2F5;--surface:#FFFFFF;--ink:#16233A;--muted:#5B687B;--line:#D3DBE3;
+  --sessao:#16233A;--tarefa:#F2B33D;--tarefa-soft:#FCEBC4;
+  --r:14px;--max:1180px;--pad:28px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font:400 18px/1.6 "Bricolage",system-ui,sans-serif;font-variation-settings:"opsz" 14}
+a{color:inherit}
+img{display:block;max-width:100%}
+:focus-visible{outline:3px solid var(--tarefa);outline-offset:3px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+h1,h2,h3,.display{font-family:"Bricolage",sans-serif;font-variation-settings:"opsz" 96}
+
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--tarefa);color:var(--ink);font:700 18px/1 "Bricolage";padding:19px 28px;border-radius:999px;text-decoration:none;box-shadow:inset 0 -3px 0 rgba(22,35,58,.18)}
+.btn:hover{background:#F6C25A}
+.btn.dark{background:var(--ink);color:#fff;box-shadow:none}
+
+.sem-promo .so-promo{display:none!important}
+
+/* faixa de lançamento */
+.faixa{background:var(--ink);color:#fff;text-align:center;font-size:15px;padding:10px 16px}
+.faixa b{color:var(--tarefa)}
+.faixa s{opacity:.6}
+
+/* preço de/por */
+.depor{display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;margin-bottom:20px}
+.depor s{color:var(--muted);font-size:18px}
+.depor strong{font:780 40px/1 "Bricolage";font-stretch:85%;letter-spacing:-.03em}
+.off{display:inline-block;background:var(--ink);color:var(--tarefa);font:700 14px/1 "Bricolage";padding:7px 10px;border-radius:999px}
+.urg{display:flex;align-items:center;gap:8px;font-size:15px;color:#9A5B00;font-weight:600;margin-top:14px}
+.urg::before{content:"";width:8px;height:8px;border-radius:50%;background:#E0860B;box-shadow:0 0 0 4px rgba(224,134,11,.18);flex:none}
+@media (prefers-reduced-motion:no-preference){.urg::before{animation:pulse 1.6s ease-in-out infinite}@keyframes pulse{50%{box-shadow:0 0 0 7px rgba(224,134,11,0)}}}
+
+/* topo */
+.topo{display:flex;justify-content:space-between;align-items:center;padding:24px 0}
+.logo{font:700 19px "Bricolage";letter-spacing:-.01em;text-decoration:none;display:flex;align-items:center;gap:10px}
+.logo i{width:22px;height:22px;border-radius:6px;background:linear-gradient(var(--sessao) 0 50%,var(--tarefa) 50% 100%)}
+.topo .by{font-size:15px;color:var(--muted)}
+
+/* hero */
+.hero{padding:48px 0 0}
+.hero-text{display:grid;grid-template-columns:1.25fr .75fr;gap:56px;align-items:end}
+h1{font-weight:750;font-stretch:88%;font-size:clamp(44px,6.4vw,86px);line-height:.98;letter-spacing:-.035em}
+.hero-side>p:first-child{font-size:20px;color:var(--muted);margin-bottom:24px}
+.hero-side>p:first-child b{color:var(--ink)}
+.hero-side .fine{font-size:15px;margin:12px 0 0;color:var(--muted)}
+
+/* semana */
+.semana{margin-top:56px;background:var(--surface);border-radius:20px;padding:24px;box-shadow:0 1px 0 var(--line),0 30px 60px -40px rgba(22,35,58,.35)}
+.semana-head{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:16px}
+.semana-head b{font:700 20px "Bricolage"}
+.legenda{display:flex;gap:20px;font-size:15px;color:var(--muted)}
+.legenda span{display:flex;align-items:center;gap:8px}
+.legenda i{width:14px;height:14px;border-radius:4px;background:var(--sessao)}
+.legenda span+span i{background:var(--tarefa)}
+.grade{display:grid;grid-template-columns:44px repeat(5,1fr);gap:4px}
+.dia{font:700 15px "Bricolage";padding:6px 8px;color:var(--muted)}
+.horas{display:grid;grid-template-rows:repeat(12,46px);gap:4px}
+.horas span{font-size:12px;color:#93A0B1;text-align:right;padding-right:8px;line-height:1}
+.col{display:grid;grid-template-rows:repeat(12,46px);gap:4px;background:repeating-linear-gradient(#F4F6F9 0 46px,transparent 46px 50px);border-radius:8px}
+.b{border-radius:8px;padding:6px 9px;font-size:13px;line-height:1.25;overflow:hidden}
+.b.s{background:var(--sessao);color:#C9D3E2}
+.b.t{background:var(--tarefa);color:var(--ink);font-weight:700;display:flex;flex-direction:column;justify-content:space-between}
+.b.t small{font-weight:400;font-size:11.5px;opacity:.8}
+@media (prefers-reduced-motion:no-preference){
+  .b.t{animation:pop .5s cubic-bezier(.2,.9,.3,1.2) both}
+  .b.t:nth-of-type(odd){animation-delay:.5s}
+  .b.t:nth-of-type(even){animation-delay:.8s}
+  @keyframes pop{from{opacity:0;transform:scale(.92)}}
+}
+.semana-foot{margin-top:18px;font-size:16px;color:var(--muted)}
+.semana-foot b{color:var(--ink)}
+
+section{padding:120px 0 0}
+.intro{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px}
+h2{font-weight:720;font-stretch:90%;font-size:clamp(34px,4.2vw,54px);line-height:1.02;letter-spacing:-.03em}
+.intro p{font-size:21px;color:var(--muted);max-width:52ch}
+.intro p+p{margin-top:16px}
+
+/* pedidos */
+.pedidos{margin-top:56px;background:var(--surface);border-radius:var(--r)}
+.ped{display:grid;grid-template-columns:250px 1fr 1fr;gap:24px;padding:22px 28px;border-top:1px solid var(--line);align-items:start}
+.ped:first-child{border-top:0}
+.ped.th{font-size:14px;color:var(--muted);padding-top:18px;padding-bottom:12px}
+.ped .nome{font:700 18px/1.3 "Bricolage";font-stretch:95%}
+.ped q{quotes:"“" "”";font-size:17px;background:var(--tarefa-soft);padding:6px 12px;border-radius:10px 10px 10px 2px;display:inline-block}
+.ped p{font-size:16px;color:var(--muted)}
+.pedidos-nota{margin-top:20px;font-size:16px;color:var(--muted)}
+
+/* guias */
+.guias{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:56px}
+.guia{background:var(--surface);border-radius:var(--r);overflow:hidden;display:grid;grid-template-rows:auto 1fr}
+.guia .capa{background:var(--tarefa);padding:40px 40px 0;display:flex;justify-content:center;height:300px;overflow:hidden}
+.guia:nth-child(2) .capa{background:var(--sessao)}
+.guia .capa img{width:62%;border-radius:6px 6px 0 0;box-shadow:0 20px 40px -10px rgba(0,0,0,.35);transform:rotate(-2deg) translateY(6px)}
+.guia:nth-child(2) .capa img{transform:rotate(2deg) translateY(6px)}
+.guia .txt{padding:28px 32px 32px}
+.guia h3{font-size:26px;font-weight:720;line-height:1.1;letter-spacing:-.02em}
+.guia .meta{font-size:15px;color:var(--muted);margin:6px 0 16px}
+.guia ul{padding-left:20px;display:grid;gap:6px;font-size:17px}
+.guia li::marker{color:#C48A12}
+
+.guia.sk-card{grid-column:1/-1;grid-template-rows:none;grid-template-columns:1fr 1fr}
+.sk-card .capa{background:var(--tarefa-soft);height:auto;padding:36px;align-items:center}
+.zips{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;width:100%;max-width:440px}
+.zip{display:flex;align-items:center;gap:10px;background:var(--surface);border-radius:10px;padding:10px 12px;font-size:14px;font-weight:600;line-height:1.2;box-shadow:0 1px 0 rgba(22,35,58,.08)}
+.zip i{flex:none;width:30px;height:36px;border-radius:4px 10px 4px 4px;background:var(--sessao);position:relative}
+.zip i::after{content:"zip";position:absolute;left:0;right:0;bottom:5px;text-align:center;font:700 9px/1 "Bricolage";color:var(--tarefa);font-style:normal}
+.zip:nth-child(-n+3) i{background:var(--tarefa)}
+.zip:nth-child(-n+3) i::after{color:var(--ink)}
+.sk-card .txt{padding:36px 40px;display:flex;flex-direction:column;justify-content:center}
+
+.sk-card .nota3{margin-top:18px;font-size:15px;color:var(--muted)}
+
+/* passos */
+.passos{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:56px;counter-reset:p}
+.passo{counter-increment:p}
+.passo::before{content:counter(p);display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:var(--ink);color:#fff;font:700 22px "Bricolage";margin-bottom:20px}
+.passo h3{font-size:24px;font-weight:700;letter-spacing:-.015em;margin-bottom:6px}
+.passo p{color:var(--muted);font-size:17px}
+.passo .tempo{display:inline-block;margin-top:12px;font-size:14px;background:var(--surface);border-radius:999px;padding:4px 12px}
+
+/* etica */
+.etica{margin-top:0;background:var(--sessao);color:#E6ECF4;border-radius:24px;padding:72px 64px;display:grid;grid-template-columns:1fr 1fr;gap:56px}
+.etica h2{color:#fff}
+.etica h2 span{display:block;color:var(--tarefa)}
+.etica .lead{margin-top:20px;color:#AEBBCD;font-size:19px}
+.etica ul{list-style:none;display:grid;gap:14px}
+.etica li{padding:16px 20px;border-radius:12px;background:rgba(255,255,255,.06);font-size:17px}
+.etica li b{display:block;color:#fff}
+.fontes{margin-top:24px;font-size:15px;color:#AEBBCD}
+
+/* oferta */
+.oferta{text-align:center;padding:120px 0}
+.oferta h2{max-width:16ch;margin:0 auto}
+.oferta .sub{margin:20px auto 0;color:var(--muted);font-size:20px;max-width:50ch}
+.preco{margin:48px auto 0;max-width:560px;background:var(--surface);border-radius:24px;padding:40px 40px 32px}
+.de{font-size:20px;color:var(--muted);margin-bottom:6px}
+.de s{text-decoration-thickness:2px}
+.de .off{margin-left:8px;vertical-align:2px}
+.valor{font:780 96px/1 "Bricolage";font-stretch:80%;letter-spacing:-.04em}
+.valor small{font-size:28px;font-stretch:100%;vertical-align:top;position:relative;top:14px;margin-right:6px;letter-spacing:0}
+.valor-sub{color:var(--muted);font-size:16px;margin:8px 0 28px}
+.preco ul{list-style:none;text-align:left;display:grid;gap:10px;margin-bottom:32px;font-size:17px}
+.preco li{display:flex;gap:12px;align-items:start}
+.preco li::before{content:"";flex:none;width:18px;height:18px;margin-top:4px;border-radius:5px;background:var(--tarefa)}
+.preco .btn{width:100%;justify-content:center}
+.preco .urg{justify-content:center;margin:0 0 20px}
+.garantia{margin-top:20px;font-size:15px;color:var(--muted)}
+
+/* compra segura */
+.seguro{background:var(--surface);border-radius:24px;padding:48px;display:grid;grid-template-columns:auto 1fr auto;gap:48px;align-items:center}
+.selos{display:flex;gap:20px}
+.selo{width:132px;height:132px;flex:none}
+.seguro h2{font-size:clamp(28px,3vw,38px)}
+.seguro p{color:var(--muted);margin-top:10px;max-width:46ch}
+.seguro ul{list-style:none;display:grid;gap:8px;margin-top:18px;font-size:16px}
+.seguro li{display:flex;gap:10px}
+.seguro li::before{content:"✓";color:#C48A12;font-weight:700}
+.seguro .btn{white-space:nowrap;justify-content:center}
+
+/* faq */
+.faq{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:48px}
+.faq div{background:var(--surface);border-radius:var(--r);padding:26px 28px}
+.faq h3{font-size:20px;font-weight:700;letter-spacing:-.01em;margin-bottom:8px}
+.faq p{font-size:17px;color:var(--muted)}
+
+footer{padding:96px 0 120px;color:var(--muted);font-size:15px}
+.quem{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;padding:48px 0 40px;border-top:1px solid var(--line)}
+.mb{display:flex;align-items:center;gap:10px;font:700 19px "Bricolage";color:var(--ink);letter-spacing:-.01em}
+.mb i{display:inline-flex;align-items:flex-end;gap:3px;height:18px}
+.mb i span{width:6px;background:var(--ink)}
+.mb i span:nth-child(1){height:42%}.mb i span:nth-child(2){height:68%}.mb i span:nth-child(3){height:100%}
+.quem h2{font-size:clamp(26px,2.6vw,32px);margin:20px 0 12px;color:var(--ink)}
+.quem p{font-size:17px;max-width:48ch}
+.contatos{list-style:none;display:grid;gap:12px;align-content:start}
+.contatos a{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:center;background:var(--surface);border-radius:var(--r);padding:12px 18px 12px 12px;text-decoration:none;color:var(--ink);font-size:17px;font-weight:600;transition:background .15s}
+.contatos a:hover{background:var(--tarefa-soft)}
+.contatos small{display:block;font-weight:400;font-size:13px;color:var(--muted)}
+.contatos svg{width:44px;height:44px;border-radius:12px;background:var(--bg);padding:11px;color:var(--ink)}
+.base{display:flex;justify-content:space-between;gap:16px 24px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:24px;font-size:14px}
+@media (max-width:960px){.quem{grid-template-columns:1fr;gap:32px}}
+
+.sticky{display:none}
+
+@media (max-width:960px){
+  .hero-text,.intro,.etica{grid-template-columns:1fr;gap:32px}
+  .ped{grid-template-columns:1fr;gap:10px}
+  .ped.th{display:none}
+  .guias,.passos,.faq{grid-template-columns:1fr}
+  .guia.sk-card{grid-template-columns:1fr}
+  .etica{padding:48px 32px}
+  .seguro{grid-template-columns:1fr;gap:28px;padding:36px 28px}
+}
+@media (max-width:640px){
+  :root{--pad:16px}
+  body{font-size:17px}
+  .topo .by{display:none}
+  .hero{padding-top:24px}
+  .semana{padding:14px;margin-left:-4px;margin-right:-4px}
+  .grade{grid-template-columns:34px repeat(2,1fr)}
+  .grade>.c3,.grade>.c4,.grade>.c5,.grade>.d3,.grade>.d4,.grade>.d5{display:none}
+  .horas,.col{grid-template-rows:repeat(12,40px)}
+  .col{background:repeating-linear-gradient(#F4F6F9 0 40px,transparent 40px 44px)}
+  section{padding-top:80px}
+  .ped{padding:20px}
+  .guia .capa{height:240px;padding:28px 28px 0}
+  .sk-card .capa{height:auto;padding:24px 16px}
+  .sk-card .txt{padding:28px 24px}
+  .sk-card ul{grid-template-columns:1fr}
+  .zip{font-size:13px;padding:9px 10px}
+  .etica{padding:40px 22px;border-radius:18px}
+  .oferta{padding:80px 0}
+  .preco{padding:28px 20px 24px}
+  .valor{font-size:80px}
+  .sticky{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:10;background:var(--ink);color:#fff;border-radius:999px;padding:8px 8px 8px 22px;align-items:center;justify-content:space-between;box-shadow:0 10px 30px -10px rgba(22,35,58,.6)}
+  .sticky b{font:700 19px/1.1 "Bricolage"}
+  .sticky b small{display:block;font:400 12px "Bricolage";opacity:.7}
+  .sticky b s{opacity:.8}
+  .selo{width:116px;height:116px}
+  .faixa{font-size:13px}
+  .sticky .btn{padding:14px 20px;font-size:16px}
+}
+</style>
+</head>
+<body>
+<p class="faixa so-promo">Preço de lançamento: <s>R$ <span data-preco-de>105,00</span></s> por <b>R$ <span data-preco>19,90</span></b> por tempo limitado<span data-promo-fim>, até 30/11</span>.</p>
+<div class="wrap">
+  <header class="topo">
+    <a class="logo" href="#"><i></i>Consultório Inteligente</a>
+    <span class="by">um material da Martin Base</span>
+  </header>
+</div>
+
+<main>
+<div class="hero">
+  <div class="wrap">
+    <div class="hero-text">
+      <h1 id="heroTitulo">As sessões são suas. O que fica entre elas, o Claude adianta.</h1>
+      <div class="hero-side">
+        <p><b id="heroDestaque">Aprenda a usar o Claude com 2 guias + 10 skills prontas</b><span id="heroSub">, feitos para psicólogas e psicólogos adiantarem as tarefas da semana sem expor nenhum paciente.</span></p>
+        <div class="depor"><s class="so-promo">R$ <span data-preco-de>105,00</span></s><strong>R$ <span data-preco>19,90</span></strong><span class="off so-promo" data-off>81% off</span></div>
+        <a class="btn" data-checkout href="https://pay.kiwify.com.br/ikR6cn2"><span>Comprar agora por R$ <span data-preco>19,90</span></span></a>
+        <p class="urg so-promo"><span>Preço de lançamento por tempo limitado<span data-promo-fim>, até 30/11</span></span></p>
+        <p class="fine">Pagamento único. Acesso imediato. 7 dias de garantia.</p>
+      </div>
+    </div>
+
+    <div class="semana" role="img" aria-label="Agenda semanal de uma psicóloga: sessões em azul e, entre elas, tarefas em amarelo que o Claude ajuda a adiantar, cada uma com a skill correspondente.">
+      <div class="semana-head">
+        <b>Uma semana de consultório</b>
+        <div class="legenda"><span><i></i>Sessões: com você</span><span><i></i>Tarefas: o Claude adianta</span></div>
+      </div>
+      <div class="grade">
+        <span></span><span class="dia">Seg</span><span class="dia">Ter</span><span class="dia d3">Qua</span><span class="dia d4">Qui</span><span class="dia d5">Sex</span>
+        <div class="horas"><span>8h</span><span>9h</span><span>10h</span><span>11h</span><span>12h</span><span>13h</span><span>14h</span><span>15h</span><span>16h</span><span>17h</span><span>18h</span><span>19h</span></div>
+        <div class="col">
+          <div class="b s" style="grid-row:1">Sessão</div>
+          <div class="b s" style="grid-row:2">Sessão</div>
+          <div class="b t" style="grid-row:3/5">Confirmar as sessões de terça<small>mensagens do consultório</small></div>
+          <div class="b s" style="grid-row:7">Sessão</div>
+          <div class="b s" style="grid-row:8">Sessão</div>
+          <div class="b t" style="grid-row:11/13">Fichar o artigo da supervisão<small>resumo de artigos</small></div>
+        </div>
+        <div class="col">
+          <div class="b s" style="grid-row:2">Sessão</div>
+          <div class="b s" style="grid-row:3">Sessão</div>
+          <div class="b s" style="grid-row:4">Sessão</div>
+          <div class="b t" style="grid-row:6/8">Post de quarta, revisado pelo Código de Ética<small>instagram + post ético</small></div>
+          <div class="b s" style="grid-row:9">Sessão</div>
+          <div class="b s" style="grid-row:10">Sessão</div>
+        </div>
+        <div class="col c3">
+          <div class="b t" style="grid-row:1/3">Declaração de comparecimento<small>documentos psicológicos</small></div>
+          <div class="b s" style="grid-row:3">Sessão</div>
+          <div class="b s" style="grid-row:4">Sessão</div>
+          <div class="b s" style="grid-row:7">Sessão</div>
+          <div class="b s" style="grid-row:8">Sessão</div>
+          <div class="b t" style="grid-row:11/13">Responder remarcações<small>mensagens do consultório</small></div>
+        </div>
+        <div class="col c4">
+          <div class="b s" style="grid-row:2">Sessão</div>
+          <div class="b s" style="grid-row:3">Sessão</div>
+          <div class="b t" style="grid-row:5/7">Roteiro do grupo de pais<small>grupos e oficinas</small></div>
+          <div class="b s" style="grid-row:8">Sessão</div>
+          <div class="b s" style="grid-row:9">Sessão</div>
+          <div class="b s" style="grid-row:10">Sessão</div>
+        </div>
+        <div class="col c5">
+          <div class="b s" style="grid-row:1">Sessão</div>
+          <div class="b s" style="grid-row:2">Sessão</div>
+          <div class="b t" style="grid-row:4/6">Fechar o mês e simular o reajuste<small>financeiro do consultório</small></div>
+          <div class="b t" style="grid-row:7/9">Planejar a próxima semana<small>organização da semana</small></div>
+          <div class="b s" style="grid-row:9">Sessão</div>
+        </div>
+      </div>
+      <p class="semana-foot"><b>Nenhum bloco amarelo leva nome de paciente.</b> É assim que o kit ensina a trabalhar.</p>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="intro">
+      <h2>Uma frase sua, uma tarefa adiantada.</h2>
+      <div>
+        <p>O kit ensina você a usar o Claude, a inteligência artificial da Anthropic, e entrega 10 skills já prontas. Skill é um conjunto de instruções que você instala uma vez. Depois, basta pedir a tarefa em poucas palavras.</p>
+        <p>Cada skill já sabe o formato certo, o seu tom e os cuidados éticos daquela tarefa.</p>
+      </div>
+    </div>
+    <div class="pedidos">
+      <div class="ped th"><span>Skill</span><span>O que você pede</span><span>O que volta</span></div>
+      <div class="ped"><span class="nome">Mensagens do consultório</span><q>Confirme as sessões de amanhã</q><p>Mensagem no seu tom, com [NOME] para você completar.</p></div>
+      <div class="ped"><span class="nome">Revisor de post ético</span><q>Revise este post antes de eu publicar</q><p>Os trechos que ferem as regras de publicidade e uma versão corrigida.</p></div>
+      <div class="ped"><span class="nome">Revisor de anonimização</span><q>Este relato está anonimizado?</q><p>Tudo o que ainda identifica alguém, com sugestão de troca.</p></div>
+      <div class="ped"><span class="nome">Conteúdo para Instagram</span><q>Ideias de posts sobre ansiedade para o mês</q><p>Temas, roteiros e legendas, sem sensacionalismo.</p></div>
+      <div class="ped"><span class="nome">Material de psicoeducação</span><q>Uma ficha simples sobre higiene do sono</q><p>Texto em linguagem acessível, pronto para imprimir.</p></div>
+      <div class="ped"><span class="nome">Documentos psicológicos</span><q>Estrutura de uma declaração</q><p>Modelo com marcadores no lugar dos dados, conforme a Res. CFP 06/2019.</p></div>
+      <div class="ped"><span class="nome">Resumo de artigos</span><q>Fiche este artigo para a supervisão</q><p>Fichamento fiel ao texto, sem citações inventadas.</p></div>
+      <div class="ped"><span class="nome">Grupos e oficinas</span><q>Quatro encontros para um grupo de pais</q><p>Objetivos, dinâmicas, tempos e cuidados de cada encontro.</p></div>
+      <div class="ped"><span class="nome">Financeiro do consultório</span><q>Quanto preciso cobrar por sessão?</q><p>As contas passo a passo, com um valor mínimo e um confortável.</p></div>
+      <div class="ped"><span class="nome">Organização da semana</span><q>Organize minha semana</q><p>Agenda em blocos, com pausas e o que pode ficar para depois.</p></div>
+    </div>
+    <p class="pedidos-nota">As skills funcionam no plano gratuito do Claude e são instaladas uma única vez.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="intro">
+      <h2>Dois guias e 10 skills, prontos para usar.</h2>
+      <div><p>Mesmo quem nunca abriu uma IA termina o primeiro guia fazendo bons pedidos. O segundo deixa o Claude configurado para o seu consultório. E as skills colocam tudo para trabalhar na sua semana.</p></div>
+    </div>
+    <div class="guias">
+      <article class="guia">
+        <div class="capa"><img src="/consultorio-inteligente/assets/guia-01.jpg" alt="Capa do Guia 01"></div>
+        <div class="txt">
+          <h3>Guia 01 · Primeiros passos com o Claude</h3>
+          <p class="meta">11 páginas, cerca de 30 minutos</p>
+          <ul><li>Criar a conta e entender a tela</li><li>O método PAPO para pedir bem</li><li>O que nunca colocar numa conversa</li><li>Exercícios e roteiro de 7 dias</li></ul>
+        </div>
+      </article>
+      <article class="guia">
+        <div class="capa"><img src="/consultorio-inteligente/assets/guia-02.jpg" alt="Capa do Guia 02"></div>
+        <div class="txt">
+          <h3>Guia 02 · Seu assistente do consultório</h3>
+          <p class="meta">12 páginas, cerca de 45 minutos</p>
+          <ul><li>Ajustes de privacidade</li><li>Um Projeto com instruções prontas para copiar</li><li>Instalação das 10 skills</li><li>Quando usar Projeto e quando usar skill</li></ul>
+        </div>
+      </article>
+      <article class="guia sk-card">
+        <div class="capa"><div class="zips" role="img" aria-label="Os 10 arquivos de skills do kit"><span class="zip"><i></i>Revisor de anonimização</span><span class="zip"><i></i>Revisor de post ético</span><span class="zip"><i></i>Mensagens do consultório</span><span class="zip"><i></i>Conteúdo para Instagram</span><span class="zip"><i></i>Material de psicoeducação</span><span class="zip"><i></i>Documentos psicológicos</span><span class="zip"><i></i>Resumo de artigos</span><span class="zip"><i></i>Grupos e oficinas</span><span class="zip"><i></i>Financeiro do consultório</span><span class="zip"><i></i>Organização da semana</span></div></div>
+        <div class="txt">
+          <h3>10 skills prontas para instalar no Claude</h3>
+          <p class="meta">Um arquivo para cada tarefa do consultório</p>
+          <ul><li>Instalação única, em poucos minutos</li><li>Funcionam no plano gratuito do Claude</li><li>Formato, tom e cuidados éticos já embutidos</li><li>Passo a passo de instalação no Guia 02</li></ul>
+          <p class="nota3">As três primeiras, em amarelo, são as que recomendamos instalar logo no início.</p>
+        </div>
+      </article>
+    </div>
+
+    <div class="passos">
+      <div class="passo"><h3>Leia o Guia 01</h3><p>Crie a conta e faça o primeiro pedido, sem dado de paciente.</p><span class="tempo">30 minutos</span></div>
+      <div class="passo"><h3>Monte o seu assistente</h3><p>Cole as instruções prontas num Projeto e ajuste ao seu jeito.</p><span class="tempo">45 minutos</span></div>
+      <div class="passo"><h3>Instale as skills</h3><p>Comece pelas três primeiras e use nas tarefas da semana.</p><span class="tempo">10 minutos</span></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="etica">
+      <div>
+        <h2>O Claude só entra nos blocos amarelos. <span>O azul é seu.</span></h2>
+        <p class="lead">Os guias e as skills seguem as orientações do Conselho Federal de Psicologia. Cada skill já traz os limites dentro dela.</p>
+        <p class="fontes">Referências: Código de Ética Profissional, Resolução CFP 06/2019 e o posicionamento do CFP sobre inteligência artificial.</p>
+      </div>
+      <ul>
+        <li><b>Não atende nem escuta</b>A sessão e a supervisão continuam com você.</li>
+        <li><b>Não diagnostica</b>Nem decide conduta clínica.</li>
+        <li><b>Não recebe dados de pacientes</b>A skill de anonimização confere o texto antes de você usar.</li>
+        <li><b>Não conclui laudos</b>Ele monta a estrutura; a análise e a assinatura são suas.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="oferta" id="comprar">
+  <div class="wrap">
+    <h2>Tudo por menos que o valor de uma sessão.</h2>
+    <p class="sub">Você recebe o acesso por e-mail logo após o pagamento e baixa os arquivos na área de membros.</p>
+    <div class="preco">
+      <p class="de so-promo">de <s>R$ <span data-preco-de>105,00</span></s> por <span class="off" data-off>81% off</span></p>
+      <p class="valor"><small>R$</small><span data-preco>19,90</span></p>
+      <p class="valor-sub">pagamento único, no Pix ou no cartão</p>
+      <p class="urg so-promo"><span>Preço de lançamento por tempo limitado<span data-promo-fim>, até 30/11</span></span></p>
+      <ul>
+        <li>Guia 01 · Primeiros passos, para tela e para impressão</li>
+        <li>Guia 02 · Seu assistente do consultório, para tela e para impressão</li>
+        <li>10 skills prontas para instalar no Claude</li>
+        <li>Instruções do Projeto prontas para copiar</li>
+      </ul>
+      <a class="btn" data-checkout href="https://pay.kiwify.com.br/ikR6cn2"><span>Comprar agora por R$ <span data-preco>19,90</span></span></a>
+      <p class="garantia">7 dias de garantia: se não servir para a sua rotina, você pede o reembolso pela Kiwify.</p>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <h2>Perguntas comuns</h2>
+    <div class="faq" id="faqWrap">
+      <div><h3>Preciso pagar pelo Claude?</h3><p>Não. Tudo funciona no plano gratuito. O plano pago dá mais uso por dia, e você decide depois se vale a pena.</p></div>
+      <div><h3>Nunca usei IA. Vou conseguir?</h3><p>Sim. O Guia 01 começa pela criação da conta e explica cada parte da tela, com exercícios do dia a dia do consultório.</p></div>
+      <div><h3>É ético usar IA no consultório?</h3><p>Como apoio ao trabalho administrativo e de escrita, sim, preservando o sigilo e mantendo a responsabilidade pelo conteúdo. Os guias mostram onde fica o limite.</p></div>
+      <div><h3>Como recebo?</h3><p>Por e-mail, logo após o pagamento. Na área de membros estão os PDFs e o arquivo com as 10 skills.</p></div>
+      <div><h3>Funciona no celular?</h3><p>Os guias, sim. A instalação das skills é mais simples pelo computador, no site claude.ai, e é feita uma única vez.</p></div>
+      <div><h3>Preciso instalar algum programa?</h3><p>Não. Tudo funciona no navegador, em claude.ai, ou no aplicativo do Claude, se você preferir.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="fecho">
+  <div class="wrap">
+    <div class="seguro">
+      <div class="selos">
+        <svg class="selo" viewBox="0 0 140 140" role="img" aria-label="Selo de compra segura">
+          <defs><path id="cs" d="M70 70 m-52 0 a52 52 0 1 1 104 0 a52 52 0 1 1 -104 0"/></defs>
+          <circle cx="70" cy="70" r="68" fill="#16233A"/>
+          <circle cx="70" cy="70" r="40" fill="#F2B33D"/>
+          <text font-family="Bricolage" font-size="11" font-weight="700" letter-spacing="1" textLength="318" lengthAdjust="spacing" fill="#F2B33D"><textPath href="#cs" startOffset="0">COMPRA SEGURA • PAGAMENTO PROTEGIDO •</textPath></text>
+          <rect x="56" y="66" width="28" height="22" rx="4" fill="#16233A"/>
+          <path d="M61 66v-7a9 9 0 0 1 18 0v7" fill="none" stroke="#16233A" stroke-width="5"/>
+          <circle cx="70" cy="76" r="3" fill="#F2B33D"/>
+        </svg>
+        <svg class="selo" viewBox="0 0 140 140" role="img" aria-label="Selo de 7 dias de garantia">
+          <defs><path id="g7" d="M70 70 m-52 0 a52 52 0 1 1 104 0 a52 52 0 1 1 -104 0"/></defs>
+          <circle cx="70" cy="70" r="68" fill="#F2B33D"/>
+          <circle cx="70" cy="70" r="40" fill="#16233A"/>
+          <text font-family="Bricolage" font-size="11" font-weight="700" letter-spacing="1" textLength="318" lengthAdjust="spacing" fill="#16233A"><textPath href="#g7" startOffset="0">GARANTIA INCONDICIONAL • 7 DIAS •</textPath></text>
+          <text x="70" y="79" text-anchor="middle" font-family="Bricolage" font-size="40" font-weight="800" fill="#F2B33D">7</text>
+          <text x="70" y="94" text-anchor="middle" font-family="Bricolage" font-size="11" font-weight="700" fill="#fff">DIAS</text>
+        </svg>
+      </div>
+      <div>
+        <h2>Compra segura, com 7 dias de garantia.</h2>
+        <p>Se em até 7 dias o kit não fizer sentido para a sua rotina, você pede o reembolso pela própria Kiwify e recebe o valor de volta.</p>
+        <ul>
+          <li>Pagamento processado pela Kiwify, com dados protegidos</li>
+          <li>Acesso imediato por e-mail após a confirmação</li>
+          <li class="so-promo"><span>Preço de lançamento: <s>R$ <span data-preco-de>105,00</span></s> por R$ <span data-preco>19,90</span><span data-promo-fim>, até 30/11</span></span></li>
+        </ul>
+      </div>
+      <a class="btn" data-checkout href="https://pay.kiwify.com.br/ikR6cn2">Comprar agora</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="quem">
+      <div>
+        <p class="mb"><i aria-hidden="true"><span></span><span></span><span></span></i>MARTIN BASE</p>
+        <h2>Quem está por trás do kit</h2>
+        <p>O Consultório Inteligente é um produto da Martin Base, estúdio de web design e tecnologia de Novo Hamburgo (RS), com atendimento em todo o Brasil. Ficou com alguma dúvida antes ou depois da compra? Fale direto com a gente.</p>
+      </div>
+      <ul class="contatos">
+        <li><a id="ctWa" href="https://wa.me/5551992616885?text=Ol%C3%A1!%20Tenho%20uma%20d%C3%BAvida%20sobre%20o%20Consult%C3%B3rio%20Inteligente." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.6a8.5 8.5 0 0 1-12.6 7.4L3.5 20.5l1.5-4.3A8.5 8.5 0 1 1 20.5 11.6Z"/><path d="M9 8.8c.2 2.6 2.4 5 5.2 5.4l1-1.2 2 .9c-.2 1.3-1.2 1.9-2.4 1.8-3.7-.4-6.7-3.4-7-7.1 0-1.2.6-2.2 1.8-2.4l.9 2-1.5.6"/></svg><span><span id="ctTel">(51) 99261-6885</span><small>WhatsApp</small></span></a></li>
+        <li><a id="ctMail" href="mailto:atendimento@martinbase.com?subject=Consult%C3%B3rio%20Inteligente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg><span><span id="ctMailTxt">atendimento@martinbase.com</span><small>E-mail</small></span></a></li>
+        <li><a href="https://martinbase.com" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3Z"/></svg><span>martinbase.com<small>Site</small></span></a></li>
+        <li><a href="https://www.instagram.com/martinbaseoficial/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6" fill="currentColor"/></svg><span>@martinbaseoficial<small>Instagram</small></span></a></li>
+      </ul>
+    </div>
+    <div class="base">
+      <span>© 2026 Martin Base. Novo Hamburgo, RS.</span>
+      <span>Material independente, testado e aprovado. Sem vínculo com a Anthropic.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky"><b><small class="so-promo">de <s>R$ <span data-preco-de>105,00</span></s> por</small>R$ <span data-preco>19,90</span></b><a class="btn" data-checkout href="https://pay.kiwify.com.br/ikR6cn2">Comprar agora</a></div>
+<script>
+(function(){
+  "use strict";
+  /* Conteúdo editável em /data/consultorio-inteligente.json (painel /admin).
+     O HTML acima é o padrão, usado se o arquivo não carregar.
+     Ao passar a data de fim da promoção, a página mostra sozinha o preço cheio. */
+  var cfg={preco:"19,90",preco_de:"105,00",fim:"2026-11-30",checkout:"https://pay.kiwify.com.br/ikR6cn2"};
+  function all(sel){return Array.prototype.slice.call(document.querySelectorAll(sel));}
+  function txt(sel,v){if(v!=null&&v!=="")all(sel).forEach(function(e){e.textContent=v;});}
+  function num(v){return parseFloat(String(v).replace(/\./g,"").replace(",","."));}
+  function esc(v){return String(v==null?"":v).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+  function aplicar(){
+    var fim=new Date(cfg.fim+"T23:59:59-03:00");
+    var emPromo=!isNaN(fim)&&Date.now()<=fim.getTime();
+    document.documentElement.classList.toggle("sem-promo",!emPromo);
+    txt("[data-preco]",emPromo?cfg.preco:cfg.preco_de);
+    txt("[data-preco-de]",cfg.preco_de);
+    var off=Math.round((1-num(cfg.preco)/num(cfg.preco_de))*100);
+    if(off>0&&off<100)txt("[data-off]",off+"% off");
+    if(!isNaN(fim)){var d=cfg.fim.split("-");txt("[data-promo-fim]",", até "+d[2]+"/"+d[1]);}
+    if(cfg.checkout)all("[data-checkout]").forEach(function(a){a.href=cfg.checkout;});
+  }
+  function hydrate(d){
+    if(d.seo){if(d.seo.titulo)document.title=d.seo.titulo;var m=document.querySelector('meta[name="description"]');if(m&&d.seo.descricao)m.setAttribute("content",d.seo.descricao);}
+    var o=d.oferta||{};
+    ["preco","preco_de","checkout"].forEach(function(k){if(o[k])cfg[k]=o[k];});
+    if(o.fim_promocao)cfg.fim=String(o.fim_promocao).slice(0,10);
+    var h=d.hero||{};
+    txt("#heroTitulo",h.titulo);txt("#heroDestaque",h.destaque);txt("#heroSub",h.subtitulo);
+    if(Array.isArray(d.faq)&&d.faq.length)document.getElementById("faqWrap").innerHTML=d.faq.map(function(f){return "<div><h3>"+esc(f.pergunta)+"</h3><p>"+esc(f.resposta)+"</p></div>";}).join("");
+    var c=d.contato||{};
+    if(c.whatsapp){var w=document.getElementById("ctWa");w.href="https://wa.me/"+String(c.whatsapp).replace(/\D/g,"")+"?text="+encodeURIComponent(c.whatsapp_msg||"Olá! Tenho uma dúvida sobre o Consultório Inteligente.");}
+    txt("#ctTel",c.telefone);
+    if(c.email){document.getElementById("ctMail").href="mailto:"+c.email+"?subject="+encodeURIComponent("Consultório Inteligente");txt("#ctMailTxt",c.email);}
+  }
+  aplicar();
+  fetch("/data/consultorio-inteligente.json",{cache:"no-cache"})
+    .then(function(r){return r.ok?r.json():null;})
+    .then(function(d){if(d)hydrate(d);})
+    .catch(function(){})
+    .then(aplicar);
+  /* Medição: clique para o checkout (GA4, via /medicao.js) */
+  document.addEventListener("click",function(ev){
+    var a=ev.target&&ev.target.closest&&ev.target.closest("a[data-checkout]");
+    if(!a||!window.gtag)return;
+    var sec=a.closest("section, header, footer, .sticky, .hero");
+    gtag("event","begin_checkout",{currency:"BRL",value:num(document.documentElement.classList.contains("sem-promo")?cfg.preco_de:cfg.preco),pagina:"consultorio-inteligente",origem:(sec&&(sec.id||sec.className.split(" ")[0]))||"pagina"});
+  },true);
+})();
+</script>
+</body>
+</html>
