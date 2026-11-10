@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-BR" style="scroll-behavior:smooth">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -32,16 +32,43 @@ a{color:inherit}
 img{display:block;max-width:100%}
 :focus-visible{outline:3px solid var(--tarefa);outline-offset:3px}
 .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
-h1,h2,h3,.display{font-family:"Bricolage",sans-serif;font-variation-settings:"opsz" 96}
+h1,h2,h3,.display{font-family:"Bricolage",sans-serif;font-variation-settings:"opsz" 96;text-wrap:balance}
+p,li{text-wrap:pretty}
 
-.btn{display:inline-flex;align-items:center;gap:10px;background:var(--tarefa);color:var(--ink);font:700 18px/1 "Bricolage";padding:19px 28px;border-radius:999px;text-decoration:none;box-shadow:inset 0 -3px 0 rgba(22,35,58,.18)}
-.btn:hover{background:#F6C25A}
-.btn.dark{background:var(--ink);color:#fff;box-shadow:none}
+.btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:14px;background:var(--tarefa);color:var(--ink);font:700 18px/1 "Bricolage";padding:19px 28px;border-radius:999px;text-decoration:none;
+  box-shadow:inset 0 -3px 0 rgba(22,35,58,.18),0 12px 22px -14px rgba(160,104,0,.9);
+  transition:transform .2s cubic-bezier(.2,.8,.3,1),box-shadow .2s,background-color .2s;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+.btn>*{position:relative;z-index:1}
+.btn.com-seta{padding:13px 14px 15px 28px}
+/* luz que acompanha o cursor */
+.btn::before{content:"";position:absolute;inset:0;background:radial-gradient(150px circle at var(--mx,50%) var(--my,50%),rgba(255,255,255,.6),transparent 70%);opacity:0;transition:opacity .25s}
+.seta{flex:none;display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--ink);color:var(--tarefa);transition:transform .25s cubic-bezier(.2,.8,.3,1)}
+.seta svg{width:16px;height:16px}
+@media (hover:hover){
+  .btn:hover{background:#F7C352;transform:translateY(-2px);box-shadow:inset 0 -3px 0 rgba(22,35,58,.18),0 18px 28px -14px rgba(160,104,0,.95)}
+  .btn:hover::before{opacity:1}
+  .btn:hover .seta{transform:translateX(4px)}
+}
+.btn:active{transform:translateY(2px);box-shadow:inset 0 -1px 0 rgba(22,35,58,.18),0 4px 10px -8px rgba(160,104,0,.9);transition-duration:.06s}
+.btn:active .seta{transform:translateX(6px)}
+/* depois do clique, enquanto o checkout abre */
+.btn.indo{pointer-events:none}
+.btn.indo .seta svg{display:none}
+.btn.indo .seta::after{content:"";width:14px;height:14px;border:2px solid currentColor;border-top-color:transparent;border-radius:50%;animation:gira .7s linear infinite}
+@keyframes gira{to{transform:rotate(360deg)}}
+/* brilho ocasional nos dois botões principais */
+@media (prefers-reduced-motion:no-preference){
+  .btn.brilho::after{content:"";position:absolute;top:0;bottom:0;left:-45%;width:32%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.6),transparent);transform:skewX(-18deg);animation:brilho 6s ease-in-out 2s infinite}
+  @keyframes brilho{0%{left:-45%}16%,100%{left:130%}}
+}
+@media (prefers-reduced-motion:reduce){.btn,.seta{transition:none}}
 
 .sem-promo .so-promo{display:none!important}
 
 /* faixa de lançamento */
-.faixa{background:var(--ink);color:#fff;text-align:center;font-size:15px;padding:10px 16px}
+.faixa{display:block;background:var(--ink);color:#fff;text-align:center;font-size:15px;padding:10px 16px;text-decoration:none}
+.faixa u{text-underline-offset:3px;margin-left:6px;white-space:nowrap}
+@media (hover:hover){.faixa:hover u{color:var(--tarefa)}}
 .faixa b{color:var(--tarefa)}
 .faixa s{opacity:.6}
 
@@ -50,8 +77,8 @@ h1,h2,h3,.display{font-family:"Bricolage",sans-serif;font-variation-settings:"op
 .depor s{color:var(--muted);font-size:18px}
 .depor strong{font:780 40px/1 "Bricolage";font-stretch:85%;letter-spacing:-.03em}
 .off{display:inline-block;background:var(--ink);color:var(--tarefa);font:700 14px/1 "Bricolage";padding:7px 10px;border-radius:999px}
-.urg{display:flex;align-items:center;gap:8px;font-size:15px;color:#9A5B00;font-weight:600;margin-top:14px}
-.urg::before{content:"";width:8px;height:8px;border-radius:50%;background:#E0860B;box-shadow:0 0 0 4px rgba(224,134,11,.18);flex:none}
+.urg{display:flex;align-items:flex-start;gap:8px;font-size:15px;color:#9A5B00;font-weight:600;margin-top:14px}
+.urg::before{content:"";width:8px;height:8px;border-radius:50%;background:#E0860B;box-shadow:0 0 0 4px rgba(224,134,11,.18);flex:none;margin-top:.5em}
 @media (prefers-reduced-motion:no-preference){.urg::before{animation:pulse 1.6s ease-in-out infinite}@keyframes pulse{50%{box-shadow:0 0 0 7px rgba(224,134,11,0)}}}
 
 /* topo */
@@ -61,8 +88,8 @@ h1,h2,h3,.display{font-family:"Bricolage",sans-serif;font-variation-settings:"op
 .topo .by{font-size:15px;color:var(--muted)}
 
 /* hero */
-.hero{padding:48px 0 0}
-.hero-text{display:grid;grid-template-columns:1.25fr .75fr;gap:56px;align-items:end}
+.hero{padding:40px 0 0}
+.hero-text{display:grid;grid-template-columns:1.25fr .75fr;gap:56px;align-items:center}
 h1{font-weight:750;font-stretch:88%;font-size:clamp(44px,6.4vw,86px);line-height:.98;letter-spacing:-.035em}
 .hero-side>p:first-child{font-size:20px;color:var(--muted);margin-bottom:24px}
 .hero-side>p:first-child b{color:var(--ink)}
@@ -72,8 +99,8 @@ h1{font-weight:750;font-stretch:88%;font-size:clamp(44px,6.4vw,86px);line-height
 .semana{margin-top:56px;background:var(--surface);border-radius:20px;padding:24px;box-shadow:0 1px 0 var(--line),0 30px 60px -40px rgba(22,35,58,.35)}
 .semana-head{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:16px}
 .semana-head b{font:700 20px "Bricolage"}
-.legenda{display:flex;gap:20px;font-size:15px;color:var(--muted)}
-.legenda span{display:flex;align-items:center;gap:8px}
+.legenda{display:flex;flex-wrap:wrap;gap:6px 20px;font-size:15px;color:var(--muted)}
+.legenda span{display:flex;align-items:center;gap:8px;white-space:nowrap}
 .legenda i{width:14px;height:14px;border-radius:4px;background:var(--sessao)}
 .legenda span+span i{background:var(--tarefa)}
 .grade{display:grid;grid-template-columns:44px repeat(5,1fr);gap:4px}
@@ -105,9 +132,12 @@ h2{font-weight:720;font-stretch:90%;font-size:clamp(34px,4.2vw,54px);line-height
 .ped{display:grid;grid-template-columns:250px 1fr 1fr;gap:24px;padding:22px 28px;border-top:1px solid var(--line);align-items:start}
 .ped:first-child{border-top:0}
 .ped.th{font-size:14px;color:var(--muted);padding-top:18px;padding-bottom:12px}
-.ped .nome{font:700 18px/1.3 "Bricolage";font-stretch:95%}
-.ped q{quotes:"“" "”";font-size:17px;background:var(--tarefa-soft);padding:6px 12px;border-radius:10px 10px 10px 2px;display:inline-block}
-.ped p{font-size:16px;color:var(--muted)}
+.ped .nome{font:700 18px/1.3 "Bricolage";font-stretch:95%;padding-top:5px}
+.ped q{quotes:"“" "”";font-size:17px;background:var(--tarefa-soft);padding:6px 12px;border-radius:10px 10px 10px 2px;display:inline-block;justify-self:start}
+.ped{transition:background-color .15s}
+@media (hover:hover){.ped:not(.th):hover{background:#FAFBFC}}
+.ped:last-child{border-radius:0 0 var(--r) var(--r)}
+.ped p{font-size:16px;color:var(--muted);padding-top:5px}
 .pedidos-nota{margin-top:20px;font-size:16px;color:var(--muted)}
 
 /* guias */
@@ -117,6 +147,8 @@ h2{font-weight:720;font-stretch:90%;font-size:clamp(34px,4.2vw,54px);line-height
 .guia:nth-child(2) .capa{background:var(--sessao)}
 .guia .capa img{width:62%;border-radius:6px 6px 0 0;box-shadow:0 20px 40px -10px rgba(0,0,0,.35);transform:rotate(-2deg) translateY(6px)}
 .guia:nth-child(2) .capa img{transform:rotate(2deg) translateY(6px)}
+.guia .capa img{transition:transform .35s cubic-bezier(.2,.8,.3,1)}
+@media (hover:hover){.guia:hover .capa img{transform:rotate(0) translateY(-6px)}}
 .guia .txt{padding:28px 32px 32px}
 .guia h3{font-size:26px;font-weight:720;line-height:1.1;letter-spacing:-.02em}
 .guia .meta{font-size:15px;color:var(--muted);margin:6px 0 16px}
@@ -172,9 +204,9 @@ h2{font-weight:720;font-stretch:90%;font-size:clamp(34px,4.2vw,54px);line-height
 .garantia{margin-top:20px;font-size:15px;color:var(--muted)}
 
 /* compra segura */
-.seguro{background:var(--surface);border-radius:24px;padding:48px;display:grid;grid-template-columns:auto 1fr auto;gap:48px;align-items:center}
-.selos{display:flex;gap:20px}
-.selo{width:132px;height:132px;flex:none}
+.seguro{background:var(--surface);border-radius:24px;padding:48px;display:grid;grid-template-columns:auto 1fr auto;gap:40px;align-items:center}
+.selos{display:flex;gap:16px}
+.selo{width:116px;height:116px;flex:none}
 .seguro h2{font-size:clamp(28px,3vw,38px)}
 .seguro p{color:var(--muted);margin-top:10px;max-width:46ch}
 .seguro ul{list-style:none;display:grid;gap:8px;margin-top:18px;font-size:16px}
@@ -197,8 +229,10 @@ footer{padding:96px 0 120px;color:var(--muted);font-size:15px}
 .quem h2{font-size:clamp(26px,2.6vw,32px);margin:20px 0 12px;color:var(--ink)}
 .quem p{font-size:17px;max-width:48ch}
 .contatos{list-style:none;display:grid;gap:12px;align-content:start}
-.contatos a{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:center;background:var(--surface);border-radius:var(--r);padding:12px 18px 12px 12px;text-decoration:none;color:var(--ink);font-size:17px;font-weight:600;transition:background .15s}
-.contatos a:hover{background:var(--tarefa-soft)}
+.contatos a{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:center;background:var(--surface);border-radius:var(--r);padding:12px 18px 12px 12px;text-decoration:none;color:var(--ink);font-size:17px;font-weight:600;transition:background-color .15s,transform .2s cubic-bezier(.2,.8,.3,1)}
+.contatos svg{transition:background-color .15s}
+@media (hover:hover){.contatos a:hover{background:var(--tarefa-soft);transform:translateX(4px)}.contatos a:hover svg{background:var(--tarefa)}}
+.contatos a:active{transform:scale(.99)}
 .contatos small{display:block;font-weight:400;font-size:13px;color:var(--muted)}
 .contatos svg{width:44px;height:44px;border-radius:12px;background:var(--bg);padding:11px;color:var(--ink)}
 .base{display:flex;justify-content:space-between;gap:16px 24px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:24px;font-size:14px}
@@ -214,6 +248,11 @@ footer{padding:96px 0 120px;color:var(--muted);font-size:15px}
   .guia.sk-card{grid-template-columns:1fr}
   .etica{padding:48px 32px}
   .seguro{grid-template-columns:1fr;gap:28px;padding:36px 28px}
+}
+@media (min-width:641px) and (max-width:960px){
+  .horas,.col{grid-template-rows:repeat(12,58px)}
+  .col{background:repeating-linear-gradient(#F4F6F9 0 58px,transparent 58px 62px)}
+  .seguro .btn{justify-self:start}
 }
 @media (max-width:640px){
   :root{--pad:16px}
@@ -236,18 +275,21 @@ footer{padding:96px 0 120px;color:var(--muted);font-size:15px}
   .oferta{padding:80px 0}
   .preco{padding:28px 20px 24px}
   .valor{font-size:80px}
-  .sticky{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:10;background:var(--ink);color:#fff;border-radius:999px;padding:8px 8px 8px 22px;align-items:center;justify-content:space-between;box-shadow:0 10px 30px -10px rgba(22,35,58,.6)}
+  .sticky{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:10;background:var(--ink);color:#fff;border-radius:999px;padding:8px 8px 8px 22px;align-items:center;justify-content:space-between;box-shadow:0 10px 30px -10px rgba(22,35,58,.6);transform:translateY(160%);transition:transform .35s cubic-bezier(.2,.8,.3,1)}
+  .sticky.on{transform:none}
+  .hero-side .btn,.seguro .btn{width:100%}
+  footer{padding-bottom:140px}
   .sticky b{font:700 19px/1.1 "Bricolage"}
   .sticky b small{display:block;font:400 12px "Bricolage";opacity:.7}
   .sticky b s{opacity:.8}
   .selo{width:116px;height:116px}
   .faixa{font-size:13px}
-  .sticky .btn{padding:14px 20px;font-size:16px}
+  .sticky .btn{padding:14px 20px;font-size:16px;box-shadow:inset 0 -2px 0 rgba(22,35,58,.18)}
 }
 </style>
 </head>
 <body>
-<p class="faixa so-promo">Preço de lançamento: <s>R$ <span data-preco-de>105,00</span></s> por <b>R$ <span data-preco>19,90</span></b> por tempo limitado<span data-promo-fim>, até 30/11</span>.</p>
+<a class="faixa so-promo" href="#comprar">Preço de lançamento: <s>R$ <span data-preco-de>105,00</span></s> por <b>R$ <span data-preco>19,90</span></b> por tempo limitado<span data-promo-fim>, até 30/11</span>. <u>Ver a oferta</u></a>
 <div class="wrap">
   <header class="topo">
     <a class="logo" href="#"><i></i>Consultório Inteligente</a>
@@ -263,7 +305,7 @@ footer{padding:96px 0 120px;color:var(--muted);font-size:15px}
       <div class="hero-side">
         <p><b id="heroDestaque">Aprenda a usar o Claude com 2 guias + 10 skills prontas</b><span id="heroSub">, feitos para psicólogas e psicólogos adiantarem as tarefas da semana sem expor nenhum paciente.</span></p>
         <div class="depor"><s class="so-promo">R$ <span data-preco-de>105,00</span></s><strong>R$ <span data-preco>19,90</span></strong><span class="off so-promo" data-off>81% off</span></div>
-        <a class="btn" data-checkout href="https://pay.kiwify.com.br/ikR6cn2"><span>Comprar agora por R$ <span data-preco>19,90</span></span></a>
+        <a class="btn com-seta brilho" data-checkout href="https://pay.kiwify.com.br/ikR6cn2"><span>Comprar agora por R$ <span data-preco>19,90</span></span><span class="seta" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a>
         <p class="urg so-promo"><span>Preço de lançamento por tempo limitado<span data-promo-fim>, até 30/11</span></span></p>
         <p class="fine">Pagamento único. Acesso imediato. 7 dias de garantia.</p>
       </div>
@@ -423,7 +465,7 @@ footer{padding:96px 0 120px;color:var(--muted);font-size:15px}
         <li>10 skills prontas para instalar no Claude</li>
         <li>Instruções do Projeto prontas para copiar</li>
       </ul>
-      <a class="btn" data-checkout href="https://pay.kiwify.com.br/ikR6cn2"><span>Comprar agora por R$ <span data-preco>19,90</span></span></a>
+      <a class="btn com-seta brilho" data-checkout href="https://pay.kiwify.com.br/ikR6cn2"><span>Comprar agora por R$ <span data-preco>19,90</span></span><span class="seta" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a>
       <p class="garantia">7 dias de garantia: se não servir para a sua rotina, você pede o reembolso pela Kiwify.</p>
     </div>
   </div>
@@ -474,7 +516,7 @@ footer{padding:96px 0 120px;color:var(--muted);font-size:15px}
           <li class="so-promo"><span>Preço de lançamento: <s>R$ <span data-preco-de>105,00</span></s> por R$ <span data-preco>19,90</span><span data-promo-fim>, até 30/11</span></span></li>
         </ul>
       </div>
-      <a class="btn" data-checkout href="https://pay.kiwify.com.br/ikR6cn2">Comprar agora</a>
+      <a class="btn com-seta" data-checkout href="https://pay.kiwify.com.br/ikR6cn2"><span>Comprar agora</span><span class="seta" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a>
     </div>
   </div>
 </section>
@@ -544,6 +586,22 @@ footer{padding:96px 0 120px;color:var(--muted);font-size:15px}
     .then(function(d){if(d)hydrate(d);})
     .catch(function(){})
     .then(aplicar);
+  /* Botões: luz que segue o cursor e estado "abrindo o checkout" */
+  all(".btn").forEach(function(b){
+    b.addEventListener("pointermove",function(e){var r=b.getBoundingClientRect();b.style.setProperty("--mx",(e.clientX-r.left)+"px");b.style.setProperty("--my",(e.clientY-r.top)+"px");});
+    if(b.hasAttribute("data-checkout"))b.addEventListener("click",function(e){if(e.button||e.metaKey||e.ctrlKey||e.shiftKey)return;b.classList.add("indo");});
+  });
+  window.addEventListener("pageshow",function(){all(".btn.indo").forEach(function(b){b.classList.remove("indo");});});
+  /* Celular: a barra fixa aparece quando nenhum outro botão de compra está na tela */
+  var barra=document.querySelector(".sticky");
+  if(barra&&"IntersectionObserver" in window){
+    var visiveis=0,vistos=typeof WeakMap==="function"?new WeakMap():null;
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(en){var antes=vistos.get(en.target)||false;if(en.isIntersecting!==antes){visiveis+=en.isIntersecting?1:-1;vistos.set(en.target,en.isIntersecting);}});
+      barra.classList.toggle("on",visiveis===0);
+    });
+    all("main a[data-checkout]").forEach(function(a){io.observe(a);});
+  }else if(barra){barra.classList.add("on");}
   /* Medição: clique para o checkout (GA4, via /medicao.js) */
   document.addEventListener("click",function(ev){
     var a=ev.target&&ev.target.closest&&ev.target.closest("a[data-checkout]");
