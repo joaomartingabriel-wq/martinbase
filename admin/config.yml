@@ -358,3 +358,59 @@ collections:
               - { label: "Texto", name: "texto", widget: "text" }
               - { label: "Botão", name: "botao", widget: "string" }
               - { label: "Mensagem que abre no WhatsApp", name: "wa_msg", widget: "string" }
+
+  # ══════════════════════════════════════════════════════════
+  #  PRODUTO — Consultório Inteligente com o Claude
+  # ══════════════════════════════════════════════════════════
+  - name: "consultorio"
+    label: "Produto — Consultório Inteligente"
+    files:
+
+      - name: "conteudo"
+        label: "Página de vendas do Consultório Inteligente"
+        file: "data/consultorio-inteligente.json"
+        description: "Conteúdo de martinbase.com/consultorio-inteligente. Depois do último dia da promoção, a página mostra sozinha o preço cheio. Lembre de ajustar também o preço na Kiwify."
+        fields:
+          - label: "Preço e promoção"
+            name: "oferta"
+            widget: "object"
+            fields:
+              - { label: "Preço promocional (ex: 19,90)", name: "preco", widget: "string" }
+              - { label: "Preço cheio, sem promoção (ex: 105,00)", name: "preco_de", widget: "string" }
+              - { label: "Último dia da promoção", name: "fim_promocao", widget: "datetime", date_format: "DD/MM/YYYY", time_format: false, format: "YYYY-MM-DD" }
+              - { label: "Link do checkout da Kiwify", name: "checkout", widget: "string" }
+
+          - label: "SEO — como aparece no Google e no WhatsApp"
+            name: "seo"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Título da página", name: "titulo", widget: "string" }
+              - { label: "Descrição (até ~155 caracteres)", name: "descricao", widget: "text" }
+
+          - label: "Topo da página"
+            name: "hero"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Título principal", name: "titulo", widget: "string" }
+              - { label: "Início do parágrafo (em negrito)", name: "destaque", widget: "string" }
+              - { label: "Resto do parágrafo", name: "subtitulo", widget: "text" }
+
+          - label: "Perguntas comuns"
+            name: "faq"
+            widget: "list"
+            collapsed: true
+            fields:
+              - { label: "Pergunta", name: "pergunta", widget: "string" }
+              - { label: "Resposta", name: "resposta", widget: "text" }
+
+          - label: "Contato no rodapé"
+            name: "contato"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "WhatsApp (só números, com país e DDD — ex: 5551992616885)", name: "whatsapp", widget: "string", pattern: ['^[0-9]{12,13}$', 'Digite apenas números, ex: 5551992616885'] }
+              - { label: "Mensagem que abre no WhatsApp", name: "whatsapp_msg", widget: "string" }
+              - { label: "Telefone como aparece na página", name: "telefone", widget: "string" }
+              - { label: "E-mail", name: "email", widget: "string" }
